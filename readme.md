@@ -1,1 +1,1 @@
-to be filled in after i recieve approval for my SOW
+to be filled in after i receive approval for my SOW
