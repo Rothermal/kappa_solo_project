@@ -1,0 +1,90 @@
+module.exports = function(grunt) {
+    grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
+        jshint: {
+            files: 'client/scripts/client.js'
+        },
+        watch: {
+            scripts: {
+                files: 'client/scripts/client.js',
+                tasks: ['jshint', 'uglify'],
+                options: {
+                    spawn: false
+                }
+            }
+        },
+        uglify: {
+            build: {
+                src: [
+                    'client/scripts/client.js',
+                    'client/scripts/controllers/*.js',
+                    'client/scripts/factories/*.js'
+                ],
+                dest: 'server/public/assets/scripts/client.min.js'
+            }
+        },
+        cssmin: {
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: 'client/styles',
+                    src: '*.css',
+                    dest: 'server/public/assets/styles/',
+                    ext: '.min.css'
+                }]
+            }
+        },
+        copy: {
+            angular: {
+                expand: true,
+                cwd: 'node_modules',
+                src: [
+                    "angular/*",
+                    "angular-animate/*",
+                    "angular-aria/*",
+                    "angular-material/*",
+                    "angular-messages/*",
+                    "angular-route/*"
+                ],
+                "dest": "server/public/assets/vendors/"
+            },
+            html: {
+                expand: true,
+                cwd: 'client/views/',
+                src: [
+                    "index.html",
+                    "routes/*.html",
+                    "partials/*.html"
+                ],
+                "dest": "server/public/assets/views/"
+            }
+        },
+        bootstrap: {
+            expand: true,
+            cwd: "node_modules/bootstrap/dist/",
+            src: [
+                "css/bootstrap.min.css",
+                "css/bootstrap.min.css.map",
+                "css/bootstrap.",
+                "js/bootstrap.min.js"
+            ],
+            "dest": "server/public/vendor/bootstrap/"
+        },
+        jQuery: {
+            expand: true,
+            cwd: "node_modules/jquery/dist/",
+            src: "jquery.min.js",
+            "dest": "server/public/vendor/jquery/"
+
+        }
+
+    });
+
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+
+    grunt.registerTask('default', ['copy', 'uglify','cssmin']);
+};
