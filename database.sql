@@ -73,6 +73,7 @@ ALTER TABLE "public"."parts"
   ADD CONSTRAINT "repair_id" FOREIGN KEY ("repair_id") REFERENCES "public"."repairs"("id");
 
 
+ALTER TABLE "public"."repairs" ADD COLUMN "date_of_repair" date;
 
 
 -- SAMPLE QUERY TO BRING BACK ALL PARTS INFO, INCLUDING THE REPAIR, THE VEHICLE AND CUSTOMER--
