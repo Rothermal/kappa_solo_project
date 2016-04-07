@@ -6,8 +6,11 @@ module.exports = function(grunt) {
         },
         watch: {
             scripts: {
-                files: 'client/scripts/**/*.js',
-                tasks: ['jshint', 'uglify'],
+                files: ['client/scripts/**/*.js',
+                        'client/views/**/*.html',
+                        'client/styles/*.css'
+                ],
+                tasks: ['jshint', 'uglify','copy','cssmin'],
                 options: {
                     spawn: false
                 }

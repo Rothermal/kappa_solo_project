@@ -8,7 +8,7 @@ var app = express();
 var port = process.env.PORT || 3000;
 var index = require('./routes/index');
 
-
+app.use(express.static('server/public'));
 
 app.use(cookieParser());
 app.use(bodyParser.json());

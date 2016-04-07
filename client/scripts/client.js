@@ -8,7 +8,7 @@ myApp.config(['$routeProvider','$locationProvider',  function($routeProvider,$lo
 
     $routeProvider
         .when('/', {
-            templateUrl: '/views/templates/home.html',
+            templateUrl: 'assets/views/templates/home.html',
             controller: 'HomeController'
         })
         //.when('/petform', {
