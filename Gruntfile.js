@@ -2,11 +2,11 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         jshint: {
-            files: 'client/scripts/client.js'
+            files: 'client/scripts/**/*.js'
         },
         watch: {
             scripts: {
-                files: 'client/scripts/client.js',
+                files: 'client/scripts/**/*.js',
                 tasks: ['jshint', 'uglify'],
                 options: {
                     spawn: false
@@ -54,7 +54,8 @@ module.exports = function(grunt) {
                 src: [
                     "index.html",
                     "routes/*.html",
-                    "partials/*.html"
+                    "partials/*.html",
+                    "templates/*.html"
                 ],
                 "dest": "server/public/assets/views/"
             }
@@ -86,5 +87,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-    grunt.registerTask('default', ['copy', 'uglify','cssmin']);
+    grunt.registerTask('default', ['copy', 'jshint', 'uglify','cssmin']);
 };
