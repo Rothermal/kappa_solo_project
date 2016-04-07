@@ -7,38 +7,70 @@ var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/my
 if(connectionString = process.env.DATABASE_URL) {
     pg.defaults.ssl = true;
 }
- //work in progress
-//pg.connect(connectionString, function(err, client, done){
-//    if (err){
-//        console.log("Error connecting to DB!", err);
-//    } else {
-//        var query = client.query('CREATE TABLE IF NOT EXISTS tbl_patroni (' +
-//            'patronus_id SERIAL PRIMARY KEY,' +
-//            'patronus_name varchar(20) NOT NULL );');
-//
-//        query.on('end', function(){
-//            console.log("Successfully checked tbl_patroni");
-//            //done();
-//        });
-//
-//        query.on('error', function(){
-//            console.log("Error creating new tbl_patroni");
-//            done();
-//        });
-//        //Check Second table
-//        query = client.query('CREATE TABLE IF NOT EXISTS tbl_people (' +
-//            'person_id SERIAL PRIMARY KEY,' +
-//            'first_name varchar(20) NOT NULL,' +
-//            'last_name varchar(20) NOT NULL,' +
-//            ' patronus_id integer REFERENCES tbl_patroni(patronus_id));');
-//        query.on('end', function(){
-//            console.log("Successfully checked tbl_people Table");
-//            done();
-//        });
-//
-//        query.on('error', function(){
-//            console.log("Error creating new tbl_people");
-//            done();
-//        });
-//    }
-//});
+
+pg.connect(connectionString, function(err, client, done){
+    if (err){
+        console.log("Error connecting to DB!", err);
+    } else {
+
+        var query = client.query('CREATE TABLE IF NOT EXISTS "public"."users" ("id" serial, "user_name" text,"password" text,"email" text,PRIMARY KEY ("id"),UNIQUE ("user_name"));');
+
+        query.on('end', function(){
+            console.log("Successfully checked user table");
+            done();
+        });
+
+        query.on('error', function(){
+            console.log("Error creating new user table");
+            done();
+        });
+        //Check Second table
+        query = client.query('CREATE TABLE IF NOT EXISTS "public"."customers" ("id" serial,"first_name" text,"last_name" text,"phone_number" text,"email" text,"vehicle_id" text,PRIMARY KEY ("id"),CONSTRAINT "vehicles.id" FOREIGN KEY ("vehicle_id") REFERENCES "public"."vehicles"("id"));');
+        query.on('end', function(){
+            console.log("Successfully checked customers table");
+            done();
+        });
+
+        query.on('error', function(){
+            console.log("Error creating new customer table");
+            done();
+        });
+        //Check Third table
+        query = client.query('CREATE TABLE IF NOT EXISTS "public"."vehicles" ("id" serial,"year" integer,"make" text,"model" text,"engine" float,"transmission" text,"vin" text,"repair_id" integer,"customer_id" integer,PRIMARY KEY ("id"),CONSTRAINT "repairs.id" FOREIGN KEY ("repair_id") REFERENCES "public"."repairs"("id"),CONSTRAINT "customers.id" FOREIGN KEY ("customer_id") REFERENCES "public"."customers"("id"));');
+
+        query.on('end', function(){
+            console.log("Successfully checked vehicles table");
+            done();
+        });
+
+        query.on('error', function(){
+            console.log("Error creating new vehicles table");
+            done();
+        });
+        //Check Fourth table
+        query = client.query('CREATE TABLE IF NOT EXISTS "public"."repairs" ("id" serial,"type" text,"description" text,"date" date,"fee" integer,"part_id" text,"vehicle_id" text,PRIMARY KEY ("id"),CONSTRAINT "parts.id" FOREIGN KEY ("part_id") REFERENCES "public"."parts"("id"),CONSTRAINT "vehicles.id" FOREIGN KEY ("vehicle_id") REFERENCES "public"."vehicles"("id"));');
+
+        query.on('end', function(){
+            console.log("Successfully checked repairs table");
+            done();
+        });
+
+        query.on('error', function(){
+            console.log("Error creating new repairs table");
+            done();
+        });
+        //Check Fifth table
+        query = client.query('CREATE TABLE IF NOT EXISTS "public"."parts" ("id" serial,"part_name" text,"description" text,"vendor" text,"cost" float,"repair_id" text,PRIMARY KEY ("id"),CONSTRAINT "repairs.id" FOREIGN KEY ("repair_id") REFERENCES "public"."repairs"("id"));');
+
+        query.on('end', function(){
+            console.log("Successfully checked parts table");
+            done();
+        });
+
+        query.on('error', function(){
+            console.log("Error creating new parts table");
+            done();
+        });
+
+    }
+});

@@ -1,79 +1,76 @@
-CREATE TABLE "users" (
+
+-- users ---
+CREATE TABLE "public"."users" (
     "id" serial,
-    PRIMARY KEY ("id")
+    "user_name" text,
+    "password" text,
+    "email" text,
+    PRIMARY KEY ("id"),
+    UNIQUE ("user_name")
 );
-ALTER TABLE "users"
-  ADD COLUMN "username" text,
-  ADD COLUMN "password" text,
-  ADD COLUMN "email" text,
-  ADD UNIQUE ("username");
+
+
+-- customers ---
+
 
 CREATE TABLE "public"."customers" (
-      "id" serial,
-      PRIMARY KEY ("id")
-  );
-ALTER TABLE "public"."customers"
-  ADD COLUMN "first_name" text,
-  ADD COLUMN "last_name" text,
-  ADD COLUMN "phone_number" text,
-  ADD COLUMN "email" text;
-CREATE TABLE "public"."vehicles" (
     "id" serial,
-    PRIMARY KEY ("id")
+    "first_name" text,
+    "last_name" text,
+    "phone_number" text,
+    "email" text,
+    "vehicle_id" text,
+    PRIMARY KEY ("id"),
+    CONSTRAINT "vehicles.id" FOREIGN KEY ("vehicle_id") REFERENCES "public"."vehicles"("id")
 );
+
+-- vehicles ----
+
+
 CREATE TABLE "public"."vehicles" (
     "id" serial,
     "year" integer,
     "make" text,
     "model" text,
-    "engine" text,
+    "engine" float,
     "transmission" text,
     "vin" text,
-    PRIMARY KEY ("id")
+    "repair_id" integer,
+    "customer_id" integer,
+    PRIMARY KEY ("id"),
+    CONSTRAINT "repairs.id" FOREIGN KEY ("repair_id") REFERENCES "public"."repairs"("id"),
+    CONSTRAINT "customers.id" FOREIGN KEY ("customer_id") REFERENCES "public"."customers"("id")
 );
+
+-- repairs ---
+
+
 CREATE TABLE "public"."repairs" (
     "id" serial,
     "type" text,
     "description" text,
+    "date" date,
     "fee" integer,
-    PRIMARY KEY ("id")
+    "part_id" text,
+    "vehicle_id" text,
+    PRIMARY KEY ("id"),
+    CONSTRAINT "parts.id" FOREIGN KEY ("part_id") REFERENCES "public"."parts"("id"),
+    CONSTRAINT "vehicles.id" FOREIGN KEY ("vehicle_id") REFERENCES "public"."vehicles"("id")
 );
+
+
+-- parts --
+
 CREATE TABLE "public"."parts" (
     "id" serial,
     "part_name" text,
     "description" text,
     "vendor" text,
-    "cost" integer,
-    PRIMARY KEY ("id")
+    "cost" float,
+    "repair_id" text,
+    PRIMARY KEY ("id"),
+    CONSTRAINT "repairs.id" FOREIGN KEY ("repair_id") REFERENCES "public"."repairs"("id")
 );
-
-ALTER TABLE "public"."customers"
-  ADD COLUMN "vehicle_id" integer,
-  ADD CONSTRAINT "vehicle_id" FOREIGN KEY ("vehicle_id") REFERENCES "public"."vehicles"("id");
-
-ALTER TABLE "public"."vehicles"
-  ADD COLUMN "repair_id" integer,
-  ADD CONSTRAINT "repair_id" FOREIGN KEY ("repair_id") REFERENCES "public"."repairs"("id");
-
-ALTER TABLE "public"."repairs"
-  ADD COLUMN "part_id" integer,
-  ADD CONSTRAINT "parts_id" FOREIGN KEY ("part_id") REFERENCES "public"."parts"("id");
-
-ALTER TABLE "public"."vehicles"
-  ADD COLUMN "customer_id" integer,
-  ADD CONSTRAINT "customer_id" FOREIGN KEY ("customer_id") REFERENCES "public"."customers"("id");
-
-
-ALTER TABLE "public"."repairs"
-  ADD COLUMN "vehicle_id" integer,
-  ADD CONSTRAINT "vehicle_id" FOREIGN KEY ("vehicle_id") REFERENCES "public"."vehicles"("id");
-
-ALTER TABLE "public"."parts"
-  ADD COLUMN "repair_id" integer,
-  ADD CONSTRAINT "repair_id" FOREIGN KEY ("repair_id") REFERENCES "public"."repairs"("id");
-
-
-ALTER TABLE "public"."repairs" ADD COLUMN "date_of_repair" date;
 
 
 -- SAMPLE QUERY TO BRING BACK ALL PARTS INFO, INCLUDING THE REPAIR, THE VEHICLE AND CUSTOMER--
