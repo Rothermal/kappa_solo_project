@@ -11,6 +11,7 @@ var pg = require('pg');
 
 // Handles request for HTML file
 router.get('/', function(req, res, next) {
+    console.log('hit register route');
     res.sendFile(path.resolve(__dirname, '../public/assets/views/routes/register.html'));
 });
 

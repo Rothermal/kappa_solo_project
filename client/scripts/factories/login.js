@@ -5,7 +5,11 @@ myApp.factory('LoginService',['$http','$location','$window',function($http,$loca
     test = ' login injection is real';
     var User = {};
 
-
+    var goRegister = function(){
+      //$http.get('/register').then(function(response){
+          $window.location.href = '/register';
+      //});
+    };
 
     var loginUser = function(user){
         $http.post('/',user).then(function(response){
@@ -43,7 +47,8 @@ myApp.factory('LoginService',['$http','$location','$window',function($http,$loca
         test:test,
         login:loginUser,
         register:registerUser,
-        user:User
+        user:User,
+        goRegister:goRegister
     };
 
 }]);

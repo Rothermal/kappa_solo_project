@@ -35,11 +35,6 @@ app.use(passport.session());
 
 
 
-
-
-
-
-
 app.use('/register', register);
 app.use('/user', user);
 app.use('/',index);

@@ -9,5 +9,8 @@ myApp.controller('LoginController',['$scope','CustomerService','LoginService',fu
     $scope.title = "This is the login Controller";
     $scope.login ="Log in to continue";
     $scope.loginFunction = loginService.login;
-
+    $scope.goRegister = function() {
+    console.log('go register');
+        loginService.goRegister();
+    };
 }]);
