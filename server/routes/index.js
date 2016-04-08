@@ -13,7 +13,7 @@ var path = require('path');
 
 
 router.get('/',function (request,response){
-    var joinedpath = path.join(__dirname, '../public/assets/views/index.html');
+    var joinedpath = path.join(__dirname, '../public/assets/views/routes/login.html');
     console.log(joinedpath);
     response.sendFile(joinedpath);
 });

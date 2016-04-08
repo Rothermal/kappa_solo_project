@@ -6,7 +6,6 @@ myApp.controller('HomeController',['$scope','CustomerService',function($scope,Cu
     var customerService = CustomerService;
     $scope.test = customerService.test;
     $scope.title = "This is the Home Controller";
-    //PetService.getData();
 
 
 

@@ -2,11 +2,8 @@
  * Created by JFCS on 4/6/16.
  */
 var pg = require('pg');
-var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/my_side_jobs_db';
-
-if(connectionString = process.env.DATABASE_URL) {
-    pg.defaults.ssl = true;
-}
+var connection = require('./connection.js');
+var connectionString = connection;
 
 pg.connect(connectionString, function(err, client, done){
     if (err){
