@@ -1,7 +1,7 @@
 /**
  * Created by JFCS on 4/6/16.
  */
-var myApp = angular.module('myApp',['ngRoute']);
+var myApp = angular.module('myApp',['ngRoute', "ngMaterial", "ngAnimate"]);
 
 
 myApp.config(['$routeProvider','$locationProvider',  function($routeProvider,$locationProvider) {
@@ -11,9 +11,9 @@ myApp.config(['$routeProvider','$locationProvider',  function($routeProvider,$lo
             templateUrl: 'assets/views/templates/home.html',
             controller: 'HomeController'
         })
-        //.when('/petform', {
-        //    templateUrl: '/views/templates/pet-form.html',
-        //    controller: 'FormController'
+        //.when('/', {
+        //    templateUrl: 'assets/views/index.html',
+        //    controller: 'MainController'
         //})
         //.when('/petlist', {
         //    templateUrl: '/views/templates/pet-view.html',

@@ -10,7 +10,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-//TODO SQL query
+//TODO SQL query -- does not properly redirect if you input and invalid password/username.
   console.log('called deserializeUser');
   pg.connect(connection, function (err, client) {
 

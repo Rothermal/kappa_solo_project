@@ -1,14 +1,26 @@
 /**
  * Created by JFCS on 4/8/16.
  */
-myApp.factory('LoginService',['$http',function($http){
+myApp.factory('LoginService',['$http','$location','$window',function($http,$location,$window){
     test = ' login injection is real';
-    var user = {};
-    //$scope.userName;
+    var User = {};
+
 
 
     var loginUser = function(user){
+        $http.post('/',user).then(function(response){
+        console.log('response in factory.',response.data);
 
+            if (response.data === false) {
+                console.log('it didnt work out');
+                $location.path('/');
+            } else {
+                console.log('redirect to index');
+                $window.location.href = '/index';
+                //$location.path('/index');
+
+            }
+        });
     };
 
     var registerUser = function(user){
@@ -31,7 +43,7 @@ myApp.factory('LoginService',['$http',function($http){
         test:test,
         login:loginUser,
         register:registerUser,
-        user:user
+        user:User
     };
 
 }]);

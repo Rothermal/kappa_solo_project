@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -15,24 +15,39 @@
     <base href="/">
 
 </head>
-<body>
-<h3>Log in to continue </h3>
-<div class="container">
-    <!-- Set form action and method -->
-    <form action="/" method="post">
-        <div>
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username"/>
+<body ng-controller="LoginController">
+<h1>{{title}}</h1>
+
+<h3>{{login}}</h3>
+<p>{{test}}</p>
+
+<div>
+    <md-content layout-padding>
+        <div style="width : 300px; margin: 0 auto;">
+            <!-- Set form action and method -->
+
+            <form name="userLogin">
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>User Name</label>
+                        <input ng-model="User.username" required>
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Password</label>
+                        <input ng-model="User.password" type="password" required>
+                    </md-input-container>
+                </div>
+                <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                    <md-button ng-click="loginFunction(User)" class="md-raised">LOG IN</md-button>
+                </section>
+            </form>
         </div>
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password"/>
-        </div>
-        <div>
-            <input type="submit" value="Log In"/>
-            <a href="/register">Register</a>
-        </div>
-    </form>
+    </md-content>
+
+
 </div>
 </body>
 </html>

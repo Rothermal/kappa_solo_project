@@ -7,12 +7,25 @@ var router = express.Router();
 var path = require('path');
 
 
+router.post('/', function(req, res, next) {
+    passport.authenticate('local', function(err, user, info) {
+        console.log(user);
+        if (err) {
+            return next(err);
+        }
+        if (user === false) {
+            res.status(401).send('something bad happend.');
+        } else {
+            res.status(200).send(user);
+        }
+    })(req, res, next);
+});
 
-router.post('/', passport.authenticate('local', {
-        successRedirect: '/index',
-        failureRedirect: '/'
-    })
-);
+//router.post('/', passport.authenticate('local', {
+//        successRedirect: '/index',
+//        failureRedirect: '/'
+//    })
+//);
 
 router.get('/index',function(request,response){
     var joinedpath = path.join(__dirname, '../public/assets/views/index.html');
