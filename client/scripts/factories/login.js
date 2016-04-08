@@ -30,7 +30,8 @@ myApp.factory('LoginService',['$http',function($http){
     return {
         test:test,
         login:loginUser,
-        register:registerUser
+        register:registerUser,
+        user:user
     };
 
 }]);

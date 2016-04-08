@@ -11,7 +11,7 @@ var pg = require('pg');
 
 // Handles request for HTML file
 router.get('/', function(req, res, next) {
-    res.sendFile(path.resolve(__dirname, '../public/views/routes/register.html'));
+    res.sendFile(path.resolve(__dirname, '../public/assets/views/routes/register.html'));
 });
 
 // Handles POST request with new user data
