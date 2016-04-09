@@ -6,12 +6,13 @@ myApp.factory('LoginService',['$http','$location','$window',function($http,$loca
     var User = {};
 
     var goRegister = function(){
+        // client side redirect.
           $window.location.href = '/register';
     };
 
     var loginUser = function(user){
         $http.post('/',user).then(function(response){
-        console.log('response in factory.',response.data);
+        console.log('response in factory login user.',response.data);
 
             if (response.data === false) {
                 console.log('it didnt work out');
@@ -27,7 +28,7 @@ myApp.factory('LoginService',['$http','$location','$window',function($http,$loca
 
     var registerUser = function(user){
         $http.post('/register',user).then(function(response){
-
+        console.log('response in register user',response);
         });
     };
 

@@ -21,11 +21,7 @@ router.post('/', function(req, res, next) {
     })(req, res, next);
 });
 
-//router.post('/', passport.authenticate('local', {
-//        successRedirect: '/index',
-//        failureRedirect: '/'
-//    })
-//);
+
 
 router.get('/index',function(request,response){
     var joinedpath = path.join(__dirname, '../public/assets/views/index.html');

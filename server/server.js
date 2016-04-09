@@ -13,6 +13,8 @@ var port = process.env.PORT || 3000;
 var index = require('./routes/index');
 var user = require('./routes/user');
 var register = require('./routes/register');
+var customers = require('./routes/customers');
+var vehicles = require('./routes/vehicles');
 
 app.use(express.static('server/public'));
 
@@ -33,8 +35,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-
+app.use('/vehicles', vehicles);
+app.use('/customers', customers);
 app.use('/register', register);
 app.use('/user', user);
 app.use('/',index);
