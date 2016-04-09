@@ -6,9 +6,7 @@ myApp.factory('LoginService',['$http','$location','$window',function($http,$loca
     var User = {};
 
     var goRegister = function(){
-      //$http.get('/register').then(function(response){
           $window.location.href = '/register';
-      //});
     };
 
     var loginUser = function(user){

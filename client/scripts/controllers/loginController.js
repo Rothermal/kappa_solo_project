@@ -8,7 +8,10 @@ myApp.controller('LoginController',['$scope','CustomerService','LoginService',fu
     $scope.test = customerService.test;
     $scope.title = "This is the login Controller";
     $scope.login ="Log in to continue";
-    $scope.loginFunction = loginService.login;
+    $scope.loginFunction = function(user){
+        loginService.login(user);
+        $scope.User = {};
+    };
     $scope.goRegister = function() {
     console.log('go register');
         loginService.goRegister();

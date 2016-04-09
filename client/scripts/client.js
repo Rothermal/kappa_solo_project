@@ -11,14 +11,14 @@ myApp.config(['$routeProvider','$locationProvider',  function($routeProvider,$lo
             templateUrl: 'assets/views/templates/home.html',
             controller: 'HomeController'
         })
-        //.when('/', {
-        //    templateUrl: 'assets/views/index.html',
-        //    controller: 'MainController'
-        //})
-        //.when('/petlist', {
-        //    templateUrl: '/views/templates/pet-view.html',
-        //    controller: 'PetListController'
-        //})
+        .when('/addcustomer', {
+            templateUrl: 'assets/views/templates/addcustomer.html',
+            controller: 'CustomerController'
+        })
+        .when('/addrepair', {
+            templateUrl: '/views/templates/addrepair.html',
+            controller: 'RepairController'
+        })
         .otherwise({
             redirectTo: '/'
         });

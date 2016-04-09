@@ -14,7 +14,7 @@ router.post('/', function(req, res, next) {
             return next(err);
         }
         if (user === false) {
-            res.status(401).send('something bad happend.');
+            res.status(401).send(false);
         } else {
             res.status(200).send(user);
         }

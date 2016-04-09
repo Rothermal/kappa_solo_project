@@ -23,28 +23,65 @@
         </div>
     </div>
 
-    <div class="container">
-        <!-- Set action and method -->
-        <form action="/register" method="post">
-            <div>
-                <label for="username">Username:</label>
-                <input type="text" name="username" id="username">
-            </div>
+    <!--<div class="container">-->
+        <!--&lt;!&ndash; Set action and method &ndash;&gt;-->
+        <!--<form action="/register" method="post">-->
+            <!--<div>-->
+                <!--<label for="username">Username:</label>-->
+                <!--<input type="text" name="username" id="username">-->
+            <!--</div>-->
 
-            <div>
-                <label for="password">Password:</label>
-                <input type="password" name="password" id="password">
-            </div>
+            <!--<div>-->
+                <!--<label for="password">Password:</label>-->
+                <!--<input type="password" name="password" id="password">-->
+            <!--</div>-->
 
-            <div>
-                <label for="email">Email:</label>
-                <input type="text" name="email" id="email">
-            </div>
+            <!--<div>-->
+                <!--<label for="email">Email:</label>-->
+                <!--<input type="text" name="email" id="email">-->
+            <!--</div>-->
 
-            <input type="submit" value="Register"/>
-        </form>
+            <!--<input type="submit" value="Register"/>-->
+        <!--</form>-->
+    <!--</div>-->
+    <md-content layout-padding>
+        <div style="width : 600px; margin: 0 auto;">
+            <div layout-align="center center" layout="column">
+                <h3 class="md-title">Admin Registration</h3>
+            </div>
+            <form name="userRegistration">
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>User namee</label>
+                        <input ng-model="user.username">
+                    </md-input-container>
+
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>email</label>
+                        <input ng-model="user.email">
+                    </md-input-container>
+
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Password</label>
+                        <input ng-model="user.password">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Verify Password</label>
+                        <input ng-model="user.verifyPassword">
+                    </md-input-container>
+                </div>
+
+
+                <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                    <md-button ng-click="submit(user)" class="md-raised">SUBMIT</md-button>
+                </section>
+            </form>
+        </div>
+    </md-content>
     </div>
-
 
 </body>
 </html>
