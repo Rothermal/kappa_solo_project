@@ -1,7 +1,33 @@
-<md-sidenav>
 
-    <p>sidebar</p>
 
-    <a href="/addcustomer">add customer</a>
-    <a href="/addrepair">add repair</a>
-</md-sidenav>
+<div layout="row" ng-controller="SidenavController">
+    <md-sidenav md-component-id="left" class="md-sidenav-left">
+        Left Nav!
+        <form>
+            <md-input-container>
+                <label for="testInput">Test input</label>
+                <input id="testInput" type="text" ng-model="data" md-autofocus>
+            </md-input-container>
+
+            <div>
+            <md-input-container>
+                <div>
+                    <a href="/addcustomer" ng-click="toggleLeftMenu()">add customer</a>
+                </div>
+                <div>
+                    <a href="/addrepair" ng-click="toggleLeftMenu()">add repair</a>
+                </div>
+                <div>
+                    <a href="/" ng-click="toggleLeftMenu()">home</a>
+                </div>
+            </md-input-container>
+            </div>
+        </form>
+    </md-sidenav>
+    <md-content>
+        <md-button ng-click="toggleLeftMenu()">
+            Open Nav Panel
+        </md-button>
+    </md-content>
+
+</div>

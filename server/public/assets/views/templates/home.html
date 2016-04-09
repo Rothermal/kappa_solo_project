@@ -1,4 +1,124 @@
-<div>
-<h3>{{title}}</h3>
+<div layout-align="center center" layout="column" >
+<h3 >{{title}}</h3>
     <p>{{test}}</p>
 </div>
+<!--<md-dialog aria-label="Search Results"  ng-cloak>-->
+    <!--<form>-->
+        <!--<md-toolbar>-->
+            <!--<div class="md-toolbar-tools">-->
+                <!--<h2>Search Results</h2>-->
+                <!--<span flex></span>-->
+                <!--<md-button class="md-icon-button" ng-click="cancel()"></md-button>-->
+            <!--</div>-->
+        <!--</md-toolbar>-->
+
+
+
+
+        <!--md-diaglog things from brady, -->
+
+        <!--<md-dialog-content>-->
+            <!--<div class="container">-->
+                <!--<h3>Search Results</h3>-->
+                <!--<div ng-controller="ProgressWheel as vm" ng-cloak layout="row" layout-sm="column" layout-align="space-around">-->
+                    <!--<md-progress-circular md-mode="indeterminate"></md-progress-circular>-->
+                <!--</div>-->
+                <!--<div ng-repeat="object in wineSelection.wine.data.Products.List">-->
+                    <!--<form>-->
+                        <!--<h3>Name: {{ object.Name }}</h3>-->
+                        <!--<img ng-src="{{object.Labels[0].Url}}" alt="Wine Label" class="img"/>-->
+                        <!--<p>Varietal: {{ object.Varietal.Name }}</p>-->
+                        <!--<p>Vintage: {{ object.Vintage}}</p>-->
+                        <!--<p>Appellation: {{ object.Appellation.Name }}</p>-->
+                        <!--<p>Region: {{ object.Appellation.Region.Name }}</p>-->
+                        <!--&lt;!&ndash;<p>Info: {{object.Vineyard.Url}}</p>-->
+                        <!--<p>Tasting Notes: {{object.Community.Url}}</p>&ndash;&gt;-->
+                        <!--<label for="cost">Cost: $</label>-->
+                        <!--<input ng-model="object.cost" type="text" id="cost" />-->
+                        <!--<label for="price">Price: $</label>-->
+                        <!--<input ng-model="object.price" type="text" id="price" />-->
+                        <!--<label for="Inventory">Inventory: </label>-->
+                        <!--<input ng-model="object.inventory" type="text" id="inventory" />-->
+
+                        <!--<md-button class="md-primary md-raised" ng-click="showAddConfirm($event, object)" >-->
+                            <!--Add Wine-->
+                        <!--</md-button>-->
+                    <!--</form>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</md-dialog-content>-->
+        <!--<md-dialog-actions layout="row">-->
+            <!--<span flex></span>-->
+            <!--<md-button ng-click="answer('close')">-->
+                <!--Close-->
+            <!--</md-button>-->
+        <!--</md-dialog-actions>-->
+    <!--</form>-->
+<!--</md-dialog>-->
+
+<!-- more md diaglog things from brady -->
+
+<!--<md-dialog aria-label="Edit Wine" ng-cloak >-->
+    <!--<form ng-submit="saveEdit(wine)">-->
+        <!--<md-toolbar>-->
+            <!--<div class="md-toolbar-tools">-->
+                <!--<h2>Edit Wine</h2>-->
+                <!--<span flex></span>-->
+                <!--<md-button class="md-icon-button"  ng-click="cancel()">-->
+
+                <!--</md-button>-->
+            <!--</div>-->
+        <!--</md-toolbar>-->
+        <!--<md-dialog-content>-->
+            <!--<div class="md-dialog-content" ng-controller="CustomerController">-->
+                <!--<img ng-src="{{wine.imgurl}}"  />-->
+                <!--<md-input-container >-->
+                    <!--<label>Name: </label>-->
+                    <!--<input type="text" ng-model="wine.name" />-->
+                <!--</md-input-container>-->
+                <!--<md-input-container >-->
+                    <!--<label>Varietal: </label>-->
+                    <!--<input type="text" ng-model="wine.varietal" />-->
+                <!--</md-input-container>-->
+                <!--<md-input-container >-->
+                    <!--<label>Vintage: </label>-->
+                    <!--<input type="text" ng-model="wine.vintage" />-->
+                <!--</md-input-container>-->
+                <!--<md-input-container >-->
+                    <!--<label>Appelation: </label>-->
+                    <!--<input type="text" ng-model="wine.appelation" />-->
+                <!--</md-input-container>-->
+                <!--<md-input-container >-->
+                    <!--<label>Region: </label>-->
+                    <!--<input type="text" ng-model="wine.region" />-->
+                <!--</md-input-container>-->
+                <!--<md-input-container >-->
+                    <!--<label>Cost: </label>-->
+                    <!--<input type="text" ng-model="wine.cost" />-->
+                <!--</md-input-container>-->
+                <!--<md-input-container >-->
+                    <!--<label>Price: </label>-->
+                    <!--<input type="text" ng-model="wine.price" />-->
+                <!--</md-input-container>-->
+                <!--<md-input-container >-->
+                    <!--<label>Inventory: </label>-->
+                    <!--<input type="text" ng-model="wine.inventory" />-->
+                <!--</md-input-container>-->
+
+
+            <!--</div>-->
+        <!--</md-dialog-content>-->
+        <!--<md-dialog-actions layout="row">-->
+            <!--<span flex></span>-->
+            <!--<md-button  ng-click="cancel('not useful')">-->
+                <!--Close Without Saving-->
+            <!--</md-button>-->
+            <!--<md-button  ng-click="answer('updated', wine)" style="margin-right:20px;">-->
+                <!--Save-->
+            <!--</md-button>-->
+        <!--</md-dialog-actions>-->
+    <!--</form>-->
+<!--</md-dialog>-->
+
+
+<!--more md-diaglog examples-->

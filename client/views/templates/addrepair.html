@@ -1,44 +1,38 @@
 <md-content layout-padding>
     <div style="width : 600px; margin: 0 auto;">
         <div layout-align="center center" layout="column">
-            <h3 class="md-title">Admin Registration</h3>
+            <h3 class="md-title">Add a New Repair</h3>
         </div>
-        <form name="userRegistration">
+        <form name="new-repair">
             <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
-                    <label>First Name</label>
-                    <input ng-model="user.firstname">
+                    <label>Customer</label>
+                    <input ng-model="repair.customer">
                 </md-input-container>
 
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Last Name</label>
-                    <input ng-model="user.lastname">
+                    <input ng-model="repair.vehicle">
                 </md-input-container>
             </div>
 
             <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>email</label>
-                    <input ng-model="user.email">
+                    <input ng-model="repair.email">
                 </md-input-container>
 
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Company</label>
-                    <input ng-model="user.company">
+                    <input ng-model="repair.company">
                 </md-input-container>
             </div>
 
             <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
-                    <label>Company Size</label>
-                    <md-select ng-model="user.companysize">
-                        <md-option>1-5</md-option>
-                        <md-option>5-15</md-option>
-                        <md-option>15-30</md-option>
-                        <md-option>30-50</md-option>
-                        <md-option>50-100</md-option>
-                        <md-option>100-500</md-option>
-                        <md-option>1000+</md-option>
+                    <label>Repair Type</label>
+                    <md-select  ng-model="repair.type">
+                        <md-option ng-repeat="type in repairTypeArray" >{{type}}</md-option>
                     </md-select>
                 </md-input-container>
 
@@ -52,54 +46,54 @@
                 </md-input-container>
             </div>
 
-            <div layout-gt-sm="row">
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Address</label>
-                    <input ng-model="user.address">
-                </md-input-container>
+            <!--<div layout-gt-sm="row">-->
+                <!--<md-input-container class="md-block" flex-gt-sm>-->
+                    <!--<label>Address</label>-->
+                    <!--<input ng-model="user.address">-->
+                <!--</md-input-container>-->
 
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Address 2</label>
-                    <input ng-model="user.address2">
-                </md-input-container>
-            </div>
+                <!--<md-input-container class="md-block" flex-gt-sm>-->
+                    <!--<label>Address 2</label>-->
+                    <!--<input ng-model="user.address2">-->
+                <!--</md-input-container>-->
+            <!--</div>-->
 
-            <div layout-gt-sm="row">
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>City</label>
-                    <input ng-model="user.city">
-                </md-input-container>
+            <!--<div layout-gt-sm="row">-->
+                <!--<md-input-container class="md-block" flex-gt-sm>-->
+                    <!--<label>City</label>-->
+                    <!--<input ng-model="user.city">-->
+                <!--</md-input-container>-->
 
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>State</label>
-                    <md-select ng-model="user.state">
-                        <md-option>MN</md-option>
-                        <md-option>WA</md-option>
-                        <md-option>MO</md-option>
-                        <md-option>IA</md-option>
-                        <md-option>WI</md-option>
-                        <md-option>MI</md-option>
-                        <md-option>NE</md-option>
-                    </md-select>
-                </md-input-container>
+                <!--<md-input-container class="md-block" flex-gt-sm>-->
+                    <!--<label>State</label>-->
+                    <!--<md-select ng-model="user.state">-->
+                        <!--<md-option>MN</md-option>-->
+                        <!--<md-option>WA</md-option>-->
+                        <!--<md-option>MO</md-option>-->
+                        <!--<md-option>IA</md-option>-->
+                        <!--<md-option>WI</md-option>-->
+                        <!--<md-option>MI</md-option>-->
+                        <!--<md-option>NE</md-option>-->
+                    <!--</md-select>-->
+                <!--</md-input-container>-->
 
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Zip Code</label>
-                    <input ng-model="user.zip">
-                </md-input-container>
-            </div>
+                <!--<md-input-container class="md-block" flex-gt-sm>-->
+                    <!--<label>Zip Code</label>-->
+                    <!--<input ng-model="user.zip">-->
+                <!--</md-input-container>-->
+            <!--</div>-->
 
-            <div layout-gt-sm="row">
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Password</label>
-                    <input ng-model="user.password">
-                </md-input-container>
+            <!--<div layout-gt-sm="row">-->
+                <!--<md-input-container class="md-block" flex-gt-sm>-->
+                    <!--<label>Password</label>-->
+                    <!--<input ng-model="user.password">-->
+                <!--</md-input-container>-->
 
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Verify Password</label>
-                    <input ng-model="user.password">
-                </md-input-container>
-            </div>
+                <!--<md-input-container class="md-block" flex-gt-sm>-->
+                    <!--<label>Verify Password</label>-->
+                    <!--<input ng-model="user.password">-->
+                <!--</md-input-container>-->
+            <!--</div>-->
 
 
             <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>

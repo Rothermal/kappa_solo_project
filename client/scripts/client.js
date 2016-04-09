@@ -16,7 +16,7 @@ myApp.config(['$routeProvider','$locationProvider',  function($routeProvider,$lo
             controller: 'CustomerController'
         })
         .when('/addrepair', {
-            templateUrl: '/views/templates/addrepair.html',
+            templateUrl: 'assets/views/templates/addrepair.html',
             controller: 'RepairController'
         })
         .otherwise({
