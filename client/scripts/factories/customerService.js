@@ -29,13 +29,20 @@ myApp.factory('CustomerService',['$http',function($http){
 
     };
 
+    var postCustomer = function(newCustomer){
+        $http.post('/customers',newCustomer).then(function(response){
+           console.log('response in post customers factory, should be customer id.',response);
+        });
+    };
+
     return {
         test:test,
         customers:Customers,
         customerList:getCustomers,
         vehicles:Vehicles,
         vehicleList:getVehicles,
-        postRepair:postRepair
+        postRepair:postRepair,
+        postCustomer:postCustomer
     };
 
 }]);

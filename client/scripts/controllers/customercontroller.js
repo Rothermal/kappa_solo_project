@@ -9,6 +9,8 @@ myApp.controller('CustomerController',['$scope','CustomerService',function($scop
 
     $scope.newCustomer = function(customer){
       console.log(customer);
+        customerService.postCustomer(customer);
+        $scope.customer = {};
     };
 
 }]);

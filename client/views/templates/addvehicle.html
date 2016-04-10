@@ -1,0 +1,56 @@
+<md-content layout-padding>
+    <div style="width : 600px; margin: 0 auto;">
+        <div layout-align="center center" layout="column">
+            <h3 class="md-title">Add a New vehicle</h3>
+        </div>
+        <form name="new-repair">
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Customer</label>
+                    <md-select  ng-model="vehicle.customer">
+                        <md-option ng-repeat="customer in customers.object" ng-click="savecustomerid(customer.id)" >{{customer.first_name}} {{customer.last_name}}</md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>vehicle year</label>
+                    <md-select  ng-model="vehicle.year">
+                        <md-option ng-repeat="year in years" ng-click="getMakesList(year)" >{{year}}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Vehicle Make</label>
+                    <md-select  ng-model="vehicle.make">
+                        <md-option ng-repeat="make in makes.object" ng-click="getModelsList(make)" >{{make.name}}</md-option>
+                    </md-select>
+                </md-input-container>
+
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Vehicle model</label>
+                        <md-select  ng-model="vehicle.model">
+                            <md-option ng-repeat="model in models ">{{model.name}}</md-option>
+                        </md-select>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Amount billed</label>
+                        <input type="number" ng-model="repair.fee">
+
+                    </md-input-container>
+                </div>
+                <div>
+                    <md-datepicker ng-model="repair.date" md-placeholder="Enter date"></md-datepicker>
+                </div>
+            </div>
+
+            <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                <md-button ng-click="postRepair(repair)" class="md-raised">SUBMIT</md-button>
+            </section>
+        </form>
+    </div>
+</md-content>
+</div>

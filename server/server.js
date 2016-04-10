@@ -20,6 +20,7 @@ var register = require('./routes/register');
 var customers = require('./routes/customers');
 var vehicles = require('./routes/vehicles');
 var repairs = require('./routes/repairs');
+var edmunds = require('./routes/edmunds');
 
 app.use(express.static('server/public'));
 
@@ -50,6 +51,7 @@ app.use(passport.session());
 /////////////////////
 //routes and server
 ////////////////////
+app.use('/edmunds',edmunds);
 app.use('/repairs',repairs);
 app.use('/vehicles', vehicles);
 app.use('/customers', customers);

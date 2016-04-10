@@ -19,6 +19,10 @@ myApp.config(['$routeProvider','$locationProvider',  function($routeProvider,$lo
             templateUrl: 'assets/views/templates/addrepair.html',
             controller: 'RepairController'
         })
+        .when('/addvehicle', {
+            templateUrl: 'assets/views/templates/addvehicle.html',
+            controller: 'VehicleController'
+        })
         .otherwise({
             redirectTo: '/'
         });
