@@ -10,14 +10,24 @@ var db = require('./modules/createdb');
 var passport = require('./strategy/user_sql.js');
 var port = process.env.PORT || 3000;
 
+
+///////////
+// routes
+//////////
 var index = require('./routes/index');
 var user = require('./routes/user');
 var register = require('./routes/register');
 var customers = require('./routes/customers');
 var vehicles = require('./routes/vehicles');
+var repairs = require('./routes/repairs');
 
 app.use(express.static('server/public'));
 
+
+
+///////////
+// middle ware
+//////////
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -35,6 +45,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+
+/////////////////////
+//routes and server
+////////////////////
+app.use('/repairs',repairs);
 app.use('/vehicles', vehicles);
 app.use('/customers', customers);
 app.use('/register', register);

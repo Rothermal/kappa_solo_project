@@ -22,12 +22,20 @@ myApp.factory('CustomerService',['$http',function($http){
         });
     };
 
+    var postRepair = function(repair){
+        $http.post('/repairs',repair).then(function(response){
+            console.log('response in post repairs factory should be repair id.',response);
+        });
+
+    };
+
     return {
         test:test,
         customers:Customers,
         customerList:getCustomers,
         vehicles:Vehicles,
-        vehicleList:getVehicles
+        vehicleList:getVehicles,
+        postRepair:postRepair
     };
 
 }]);

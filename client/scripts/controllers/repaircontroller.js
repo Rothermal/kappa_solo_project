@@ -30,6 +30,7 @@ myApp.controller('RepairController',['$scope','CustomerService',function($scope,
 
     $scope.postRepair = function(repair){
       console.log(repair);
+        customerService.postRepair(repair);
         $scope.repair = {};
     };
     $scope.customers =  customerService.customers;
