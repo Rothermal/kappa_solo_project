@@ -5,6 +5,7 @@ myApp.controller('LoginController',['$scope','CustomerService','LoginService',fu
     var customerService = CustomerService;
     var loginService = LoginService;
     $scope.User = {};
+    $scope.newUser = {};
     $scope.test = customerService.test;
     $scope.title = "This is the login Controller";
     $scope.login ="Log in to continue";
@@ -16,4 +17,16 @@ myApp.controller('LoginController',['$scope','CustomerService','LoginService',fu
     console.log('go register');
         loginService.goRegister();
     };
+    $scope.registerUser = function(newUser){
+        console.log(newUser);
+        if(newUser.password !== newUser.verifyPassword){
+            alert('passwords did not match, please try again');
+            $scope.newUser.password = '';
+            $scope.newUser.verifyPassword = '';
+        } else {
+            loginService.register(newUser);
+            $scope.newUser = {};
+        }
+    };
+
 }]);

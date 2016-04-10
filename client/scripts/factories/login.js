@@ -29,6 +29,7 @@ myApp.factory('LoginService',['$http','$location','$window',function($http,$loca
     var registerUser = function(user){
         $http.post('/register',user).then(function(response){
         console.log('response in register user',response);
+            $window.location.href = '/';
         });
     };
 

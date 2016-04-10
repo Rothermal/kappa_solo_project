@@ -14,11 +14,11 @@
     <base href="/">
 
 </head>
-<body >
+<body ng-controller="LoginController">
 
 
-    <div class="instructions">
-        <div class="container">
+    <div layout-align="center center" layout="column">
+        <div >
             <h1 class="lead">Register New User</h1>
         </div>
     </div>
@@ -49,34 +49,37 @@
             <div layout-align="center center" layout="column">
                 <h3 class="md-title">Admin Registration</h3>
             </div>
+
             <form name="userRegistration">
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>User namee</label>
-                        <input ng-model="user.username">
+                        <input ng-model="newUser.username">
                     </md-input-container>
+                </div>
 
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>email</label>
-                        <input ng-model="user.email">
+                        <input ng-model="newUser.email">
                     </md-input-container>
+                </div>
 
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Password</label>
-                        <input ng-model="user.password">
+                        <input ng-model="newUser.password">
                     </md-input-container>
 
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Verify Password</label>
-                        <input ng-model="user.verifyPassword">
+                        <input ng-model="newUser.verifyPassword">
                     </md-input-container>
                 </div>
 
 
                 <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-                    <md-button ng-click="submit(user)" class="md-raised">SUBMIT</md-button>
+                    <md-button ng-click="registerUser(newUser)" class="md-raised">SUBMIT</md-button>
                 </section>
             </form>
         </div>

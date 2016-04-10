@@ -5,7 +5,10 @@ myApp.controller('CustomerController',['$scope','CustomerService',function($scop
     var customerService = CustomerService;
     $scope.test = customerService.test;
     $scope.title = "This is the Customer Controller";
+    $scope.customer = {};
 
-
+    $scope.newCustomer = function(customer){
+      console.log(customer);
+    };
 
 }]);
