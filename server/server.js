@@ -21,6 +21,7 @@ var customers = require('./routes/customers');
 var vehicles = require('./routes/vehicles');
 var repairs = require('./routes/repairs');
 var edmunds = require('./routes/edmunds');
+var parts = require('./routes/parts');
 
 app.use(express.static('server/public'));
 
@@ -51,6 +52,7 @@ app.use(passport.session());
 /////////////////////
 //routes and server
 ////////////////////
+app.use('/parts',parts);
 app.use('/edmunds',edmunds);
 app.use('/repairs',repairs);
 app.use('/vehicles', vehicles);

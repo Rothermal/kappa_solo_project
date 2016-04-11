@@ -16,6 +16,10 @@ myApp.controller('VehicleController',['$scope','CustomerService','VehicleService
     };
 
    $scope.saveCustomerId = function(id){
+       $scope.makes = [];
+       $scope.models = [];
+       $scope.engines = [];
+       $scope.vehicle.year = '';
         console.log('customer id', id);
         $scope.vehicle.customer_id = id;
         console.log('$scoped id',  $scope.vehicle.customer_id );

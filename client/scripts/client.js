@@ -23,6 +23,10 @@ myApp.config(['$routeProvider','$locationProvider',  function($routeProvider,$lo
             templateUrl: 'assets/views/templates/addvehicle.html',
             controller: 'VehicleController'
         })
+        .when('/addparts', {
+            templateUrl: 'assets/views/templates/addparts.html',
+            controller: 'PartsController'
+        })
         .otherwise({
             redirectTo: '/'
         });

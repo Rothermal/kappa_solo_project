@@ -1,0 +1,43 @@
+<md-content layout-padding>
+    <div style="width : 600px; margin: 0 auto;">
+        <div layout-align="center center" layout="column">
+            <h3 class="md-title">Add a new part</h3>
+        </div>
+        <form name="new-parts">
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>part name</label>
+                    <input ng-model="part.name">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>description</label>
+                    <input ng-model="part.description">
+                </md-input-container>
+            </div>
+
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>vendor</label>
+                    <input ng-model="part.vendor">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>part cost</label>
+                    <input  type="number"  ng-model="part.cost">
+                </md-input-container>
+            </div>
+            <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                <md-button ng-click="addPart(part)" class="md-raised">Add Part to list</md-button>
+            </section>
+
+            <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                <md-button ng-click="postParts(parts)" class="md-raised">SUBMIT</md-button>
+            </section>
+        </form>
+        <div ng-repeat="part in parts" >
+            <p> {{part.name}}</p>
+        </div>
+    </div>
+</md-content>
+</div>

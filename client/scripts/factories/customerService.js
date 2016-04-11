@@ -6,6 +6,7 @@ myApp.factory('CustomerService',['$http',function($http){
     var Customers = {};
     var Vehicles = {};
     var test = 'injection is real';
+    var lastPostedRepair_id = {};
 
 
    var getCustomers = function(){
@@ -25,6 +26,8 @@ myApp.factory('CustomerService',['$http',function($http){
     var postRepair = function(repair){
         $http.post('/repairs',repair).then(function(response){
             console.log('response in post repairs factory should be repair id.',response);
+            lastPostedRepair_id.object = response.data[0];
+            console.log(lastPostedRepair_id);
         });
 
     };
@@ -42,7 +45,8 @@ myApp.factory('CustomerService',['$http',function($http){
         vehicles:Vehicles,
         vehicleList:getVehicles,
         postRepair:postRepair,
-        postCustomer:postCustomer
+        postCustomer:postCustomer,
+        lastRepair:lastPostedRepair_id
     };
 
 }]);
