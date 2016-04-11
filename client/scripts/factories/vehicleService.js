@@ -28,7 +28,7 @@ myApp.factory('VehicleService',['$http',function($http){
 
     var postVehicle = function(vehicle){
       console.log('vehicle in factory post call',vehicle);
-        $http('/vehicles',vehicle).then(function(response){
+        $http.post('/vehicles',vehicle).then(function(response){
             console.log(response);
         });
     };

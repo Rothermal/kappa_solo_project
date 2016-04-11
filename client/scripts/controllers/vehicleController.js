@@ -53,6 +53,7 @@ myApp.controller('VehicleController',['$scope','CustomerService','VehicleService
 
     $scope.postVehicle = function(vehicle){
         console.log(vehicle);
+        vehicleService.postVehicle(vehicle);
         $scope.vehicle = {};
     };
 
