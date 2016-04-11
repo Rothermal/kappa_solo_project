@@ -10,14 +10,17 @@ myApp.controller('RepairController',['$scope','CustomerService',function($scope,
     $scope.repair = {};
     $scope.test = customerService.test;
     $scope.title = "This is the Repair Controller";
+
     $scope.getCustomers = function(){
         customerService.customerList();
     };
+
     $scope.getVehicles = function(id){
       console.log('clicked',id);
         customerService.vehicleList(id);
         setCustomerId(id);
     };
+
     $scope.setVehicleid= function(id){
         console.log('vehicle id', id);
         $scope.repair.vehicle_id = id;

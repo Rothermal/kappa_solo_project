@@ -8,7 +8,7 @@
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Customer</label>
                     <md-select  ng-model="vehicle.customer">
-                        <md-option ng-repeat="customer in customers.object" ng-click="savecustomerid(customer.id)" >{{customer.first_name}} {{customer.last_name}}</md-option>
+                        <md-option ng-repeat="customer in customers.object" ng-click="saveCustomerId(customer.id)" >{{customer.first_name}} {{customer.last_name}}</md-option>
                     </md-select>
                 </md-input-container>
 
@@ -32,23 +32,37 @@
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Vehicle model</label>
                         <md-select  ng-model="vehicle.model">
-                            <md-option ng-repeat="model in models ">{{model.name}}</md-option>
+                            <md-option ng-repeat="model in models " ng-click="getEngine(model.name)">{{model.name}}</md-option>
                         </md-select>
                     </md-input-container>
 
                     <md-input-container class="md-block" flex-gt-sm>
-                        <label>Amount billed</label>
-                        <input type="number" ng-model="repair.fee">
-
+                        <label>Engine</label>
+                        <md-select  ng-model="vehicle.engine">
+                            <md-option ng-repeat="engine in engines.object" " >{{engine.engine.size}}</md-option>
+                        </md-select>
                     </md-input-container>
                 </div>
+
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Transmission</label>
+                    <md-select  ng-model="vehicle.transmission">
+                        <md-option>Automatic</md-option>
+                        <md-option>Manual</md-option>
+                    </md-select>
+                </md-input-container>
+
                 <div>
-                    <md-datepicker ng-model="repair.date" md-placeholder="Enter date"></md-datepicker>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Vehicle Identification Number</label>
+                        <input type="text" ng-model="vehicle.vin">
+                    </md-input-container>
                 </div>
+
             </div>
 
             <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-                <md-button ng-click="postRepair(repair)" class="md-raised">SUBMIT</md-button>
+                <md-button ng-click="postVehicle(vehicle)" class="md-raised">SUBMIT</md-button>
             </section>
         </form>
     </div>
