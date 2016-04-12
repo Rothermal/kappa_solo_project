@@ -1,124 +1,59 @@
 <div layout-align="center center" layout="column" >
 <h3 >{{title}}</h3>
     <p>{{test}}</p>
+
+<md-toolbar class="md-table-toolbar md-default">
+    <div layout-align="center center" layout="column" class="md-toolbar-tools">
+        <span>Repairs</span>
+    </div>
+</md-toolbar>
+<!-- exact table from live demo -->
+<md-table-container>
+    <table md-table md-row-select ng-model="selected">
+        <!--md-row-select multiple-->
+        <thead md-head >
+        <tr md-row>
+            <th md-column><span>Repair Number</span></th>
+            <th md-column><span>Customer</span></th>
+            <th md-column><span>Vehicle</span></th>
+            <th md-column>Repair type</th>
+            <th md-column>Date of Repair</th>
+            <th md-column mdNumeric>Amount Paid</th>
+            <th md-column>Comments</th>
+            <!--ng-click="myFilter = 'id'; sort()"-->
+            <!--ng-click="myFilter = 'first_name'; sort()"-->
+            <!--ng-click="myFilter = 'model'; sort()"-->
+            <!--ng-click="myFilter = 'type'; sort()"-->
+            <!--ng-click="myFilter = 'type'; sort()"-->
+            <!--ng-click="myFilter = 'type'; sort()"-->
+            <!--<th md-column md-numeric>Sodium (mg)</th>-->
+            <!--<th md-column md-numeric>Calcium (%)</th>-->
+            <!--<th md-column md-numeric>Iron (%)</th>-->
+        </tr>
+        </thead>
+        <tbody md-body>
+        <tr md-row md-select="repair" ng-click="edit($event,repair)" md-auto-select ng-repeat="repair in repairs.object  | orderBy : '-id'">
+            <td md-cell>{{repair.id}}</td>
+            <td md-cell>{{repair.first_name}} {{repair.last_name}}</td>
+            <td md-cell>{{repair.year}} {{repair.make}} {{repair.model}}</td>
+            <td md-cell> {{repair.type}}</td>
+            <td md-cell>{{repair.date_of_repair | date : 'longDate'}} </td>
+            <td md-cell  >{{repair.fee | number : 2}}</td>
+            <!--<td md-cell ng-click="editComment($event, repair)" ng-class="{'md-placeholder': !repair.description}">-->
+                <!--{{repair.description || 'Add a description'}}-->
+            <!--</td>-->
+            <!--<td md-cell>{{dessert.sodium.value}}</td>-->
+            <!--<td md-cell>{{dessert.calcium.value}}</td>-->
+            <!--<td md-cell>{{dessert.iron.value}}</td>-->
+        </tr>
+        </tbody>
+    </table>
+</md-table-container>
+
+
+<md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]"
+                     md-page="query.page" md-total="count" md-on-paginate="getRepairs"
+                     md-page-select></md-table-pagination>
+
+
 </div>
-<!--<md-dialog aria-label="Search Results"  ng-cloak>-->
-    <!--<form>-->
-        <!--<md-toolbar>-->
-            <!--<div class="md-toolbar-tools">-->
-                <!--<h2>Search Results</h2>-->
-                <!--<span flex></span>-->
-                <!--<md-button class="md-icon-button" ng-click="cancel()"></md-button>-->
-            <!--</div>-->
-        <!--</md-toolbar>-->
-
-
-
-
-        <!--md-diaglog things from brady, -->
-
-        <!--<md-dialog-content>-->
-            <!--<div class="container">-->
-                <!--<h3>Search Results</h3>-->
-                <!--<div ng-controller="ProgressWheel as vm" ng-cloak layout="row" layout-sm="column" layout-align="space-around">-->
-                    <!--<md-progress-circular md-mode="indeterminate"></md-progress-circular>-->
-                <!--</div>-->
-                <!--<div ng-repeat="object in wineSelection.wine.data.Products.List">-->
-                    <!--<form>-->
-                        <!--<h3>Name: {{ object.Name }}</h3>-->
-                        <!--<img ng-src="{{object.Labels[0].Url}}" alt="Wine Label" class="img"/>-->
-                        <!--<p>Varietal: {{ object.Varietal.Name }}</p>-->
-                        <!--<p>Vintage: {{ object.Vintage}}</p>-->
-                        <!--<p>Appellation: {{ object.Appellation.Name }}</p>-->
-                        <!--<p>Region: {{ object.Appellation.Region.Name }}</p>-->
-                        <!--&lt;!&ndash;<p>Info: {{object.Vineyard.Url}}</p>-->
-                        <!--<p>Tasting Notes: {{object.Community.Url}}</p>&ndash;&gt;-->
-                        <!--<label for="cost">Cost: $</label>-->
-                        <!--<input ng-model="object.cost" type="text" id="cost" />-->
-                        <!--<label for="price">Price: $</label>-->
-                        <!--<input ng-model="object.price" type="text" id="price" />-->
-                        <!--<label for="Inventory">Inventory: </label>-->
-                        <!--<input ng-model="object.inventory" type="text" id="inventory" />-->
-
-                        <!--<md-button class="md-primary md-raised" ng-click="showAddConfirm($event, object)" >-->
-                            <!--Add Wine-->
-                        <!--</md-button>-->
-                    <!--</form>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</md-dialog-content>-->
-        <!--<md-dialog-actions layout="row">-->
-            <!--<span flex></span>-->
-            <!--<md-button ng-click="answer('close')">-->
-                <!--Close-->
-            <!--</md-button>-->
-        <!--</md-dialog-actions>-->
-    <!--</form>-->
-<!--</md-dialog>-->
-
-<!-- more md diaglog things from brady -->
-
-<!--<md-dialog aria-label="Edit Wine" ng-cloak >-->
-    <!--<form ng-submit="saveEdit(wine)">-->
-        <!--<md-toolbar>-->
-            <!--<div class="md-toolbar-tools">-->
-                <!--<h2>Edit Wine</h2>-->
-                <!--<span flex></span>-->
-                <!--<md-button class="md-icon-button"  ng-click="cancel()">-->
-
-                <!--</md-button>-->
-            <!--</div>-->
-        <!--</md-toolbar>-->
-        <!--<md-dialog-content>-->
-            <!--<div class="md-dialog-content" ng-controller="CustomerController">-->
-                <!--<img ng-src="{{wine.imgurl}}"  />-->
-                <!--<md-input-container >-->
-                    <!--<label>Name: </label>-->
-                    <!--<input type="text" ng-model="wine.name" />-->
-                <!--</md-input-container>-->
-                <!--<md-input-container >-->
-                    <!--<label>Varietal: </label>-->
-                    <!--<input type="text" ng-model="wine.varietal" />-->
-                <!--</md-input-container>-->
-                <!--<md-input-container >-->
-                    <!--<label>Vintage: </label>-->
-                    <!--<input type="text" ng-model="wine.vintage" />-->
-                <!--</md-input-container>-->
-                <!--<md-input-container >-->
-                    <!--<label>Appelation: </label>-->
-                    <!--<input type="text" ng-model="wine.appelation" />-->
-                <!--</md-input-container>-->
-                <!--<md-input-container >-->
-                    <!--<label>Region: </label>-->
-                    <!--<input type="text" ng-model="wine.region" />-->
-                <!--</md-input-container>-->
-                <!--<md-input-container >-->
-                    <!--<label>Cost: </label>-->
-                    <!--<input type="text" ng-model="wine.cost" />-->
-                <!--</md-input-container>-->
-                <!--<md-input-container >-->
-                    <!--<label>Price: </label>-->
-                    <!--<input type="text" ng-model="wine.price" />-->
-                <!--</md-input-container>-->
-                <!--<md-input-container >-->
-                    <!--<label>Inventory: </label>-->
-                    <!--<input type="text" ng-model="wine.inventory" />-->
-                <!--</md-input-container>-->
-
-
-            <!--</div>-->
-        <!--</md-dialog-content>-->
-        <!--<md-dialog-actions layout="row">-->
-            <!--<span flex></span>-->
-            <!--<md-button  ng-click="cancel('not useful')">-->
-                <!--Close Without Saving-->
-            <!--</md-button>-->
-            <!--<md-button  ng-click="answer('updated', wine)" style="margin-right:20px;">-->
-                <!--Save-->
-            <!--</md-button>-->
-        <!--</md-dialog-actions>-->
-    <!--</form>-->
-<!--</md-dialog>-->
-
-
-<!--more md-diaglog examples-->

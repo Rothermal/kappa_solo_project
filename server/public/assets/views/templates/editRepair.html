@@ -1,0 +1,61 @@
+<md-dialog aria-label="Edit Wine"  ng-cloak >
+    <form ng-submit="saveEdit(repair)">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Edit Wine</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content" ng-controller="HomeController">
+                <md-input-container >
+                    <label>First Name: </label>
+                    <input type="text" ng-model="repair.first_name" />
+                </md-input-container>
+                <md-input-container >
+                    <label>Last Name: </label>
+                    <input type="text" ng-model="repair.last_name" />
+                </md-input-container>
+                <md-input-container >
+                    <label>Vehicle Year: </label>
+                    <input type="text" ng-model="repair.year" />
+                </md-input-container>
+                <md-input-container >
+                    <label>Make: </label>
+                    <input type="text" ng-model="repair.make" />
+                </md-input-container>
+                <md-input-container >
+                    <label>Model: </label>
+                    <input type="text" ng-model="repair.model" />
+                </md-input-container>
+                <md-input-container >
+                    <label>Repair type: </label>
+                    <input type="text" ng-model="repair.type" />
+                </md-input-container>
+                <md-input-container >
+                    <label>Repair description: </label>
+                    <input type="text" ng-model="repair.description" />
+                </md-input-container>
+                <md-input-container >
+                    <label>: </label>
+                    <input type="text" ng-model="repair.fee" />
+                </md-input-container>
+
+
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="cancel('not useful')">
+                Close Without Saving
+            </md-button>
+            <md-button ng-click="answer('updated', repair)" style="margin-right:20px;">
+                Save
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+

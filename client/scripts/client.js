@@ -1,7 +1,7 @@
 /**
  * Created by JFCS on 4/6/16.
  */
-var myApp = angular.module('myApp',['ngRoute', "ngMaterial", "ngAnimate"]);
+var myApp = angular.module('myApp',['ngRoute', "ngMaterial", "ngAnimate",'md.data.table']);
 
 
 myApp.config(['$routeProvider','$locationProvider',  function($routeProvider,$locationProvider) {

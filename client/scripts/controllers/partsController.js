@@ -23,7 +23,5 @@ myApp.controller('PartsController',['$scope','CustomerService','PartsService',fu
         }
     };
 
-    /// sudu code, soo when a repair is submitted should bring up a pop-up or message asking if need to add parts to repair.
-    // click yes, moves to parts view,
 
 }]);
