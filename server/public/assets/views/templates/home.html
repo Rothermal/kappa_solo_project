@@ -31,7 +31,7 @@
             <!--<th md-column md-numeric>Iron (%)</th>-->
         </tr>
         </thead>
-        <tbody md-body>
+        <tbody md-body >
         <tr md-row md-select="repair" ng-click="edit($event,repair)" md-auto-select ng-repeat="repair in repairs.object  | orderBy : '-id'">
             <td md-cell>{{repair.id}}</td>
             <td md-cell>{{repair.first_name}} {{repair.last_name}}</td>
@@ -39,9 +39,8 @@
             <td md-cell> {{repair.type}}</td>
             <td md-cell>{{repair.date_of_repair | date : 'longDate'}} </td>
             <td md-cell  >{{repair.fee | number : 2}}</td>
-            <!--<td md-cell ng-click="editComment($event, repair)" ng-class="{'md-placeholder': !repair.description}">-->
-                <!--{{repair.description || 'Add a description'}}-->
-            <!--</td>-->
+            <td md-cell  >{{repair.description}}</td>
+
             <!--<td md-cell>{{dessert.sodium.value}}</td>-->
             <!--<td md-cell>{{dessert.calcium.value}}</td>-->
             <!--<td md-cell>{{dessert.iron.value}}</td>-->

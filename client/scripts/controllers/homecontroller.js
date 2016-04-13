@@ -11,7 +11,7 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
     $scope.title = "This is the Home Controller";
     $scope.count = 0;
     $scope.repairs = [];
-    $scope.repair = {};
+    //$scope.repair = {};
 
     $scope.getRepairs = function(){
         homeService.getRepairs();
@@ -54,17 +54,20 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
 
 //Edit
         $scope.edit = function(ev, repair) {
+            console.log('hit edit');
+            console.log(repair);
             $scope.repair = repair;
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
             $mdDialog.show({
-                    controller: DialogController,
-                    templateUrl: 'assets/views/templates/editRepair.html',
+                    //controller: HomeController,
+                    templateUrl:'/assets/views/templates/editRepair.html',
                     parent: angular.element(document.body),
                     targetEvent: ev,
                     clickOutsideToClose:true,
-                    fullscreen: useFullScreen,
+                    //fullscreen: useFullScreen,
                     scope: $scope,
                     preserveScope: true
+                    //resolve:repair
                 })
                 .then(function(answer) {
                     $scope.status = $scope.getRepairs();
@@ -77,18 +80,32 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
                 $scope.customFullscreen = (wantsFullScreen === true);
             });
         };
-        function DialogController($scope, $mdDialog) {
-            $scope.hide = function() {
-                $mdDialog.hide();
-            };
-            $scope.cancel = function() {
-                $mdDialog.cancel();
-            };
-            $scope.answer = function(response, repair) {
-                $mdDialog.hide(response);
-                //HomeService.editRepair(repair);
-            };
-        }
+
+        $scope.hide = function() {
+            $mdDialog.hide();
+        };
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+        $scope.answer = function(response, repair) {
+            $mdDialog.hide(response);
+            //homeService.editRepair(repair);
+            console.log(repair);
+        };
+
+        //function DialogController($scope, $mdDialog) {
+        //    console.log('dialog controller');
+        //    $scope.hide = function() {
+        //        $mdDialog.hide();
+        //    };
+        //    $scope.cancel = function() {
+        //        $mdDialog.cancel();
+        //    };
+        //    $scope.answer = function(response, repair) {
+        //        $mdDialog.hide(response);
+        //        homeService.editRepair(repair);
+        //    };
+        //}
 
     /// stuff for testing md tables
     $scope.selected = [];

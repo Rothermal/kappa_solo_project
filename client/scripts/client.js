@@ -4,7 +4,11 @@
 var myApp = angular.module('myApp',['ngRoute', "ngMaterial", "ngAnimate",'md.data.table']);
 
 
-myApp.config(['$routeProvider','$locationProvider',  function($routeProvider,$locationProvider) {
+myApp.config(['$routeProvider','$locationProvider','$mdThemingProvider', function($routeProvider,$locationProvider,$mdThemingProvider) {
+
+    $mdThemingProvider.theme('docs-dark', 'default')
+        .primaryPalette('yellow')
+        .dark();
 
     $routeProvider
         .when('/', {
@@ -26,6 +30,10 @@ myApp.config(['$routeProvider','$locationProvider',  function($routeProvider,$lo
         .when('/addparts', {
             templateUrl: 'assets/views/templates/addparts.html',
             controller: 'PartsController'
+        })
+        .when('/editRepair', {
+            templateUrl: 'assets/views/templates/editRepair.html',
+            controller: 'HomeController'
         })
         .otherwise({
             redirectTo: '/'

@@ -17,7 +17,7 @@ router.get('/',function(request,response){
             response.status(500).send(err);
         } else{
             var results = [];
-            var query = client.query("SELECT repairs.id, type, description, fee, date_of_repair, first_name, phone_number, email, year, make, model, engine, transmission, vin  from repairs INNER JOIN customers ON customers.id = repairs.customer_id INNER JOIN vehicles ON vehicles.id = repairs.vehicle_id;");
+            var query = client.query("SELECT repairs.id, type, description, fee, date_of_repair, first_name, last_name, phone_number, email, year, make, model, engine, transmission, vin  from repairs INNER JOIN customers ON customers.id = repairs.customer_id INNER JOIN vehicles ON vehicles.id = repairs.vehicle_id;");
         }
         query.on('row',function(row){
             console.log(row);
