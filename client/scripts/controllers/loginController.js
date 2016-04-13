@@ -7,8 +7,8 @@ myApp.controller('LoginController',['$scope','CustomerService','LoginService',fu
     $scope.User = {};
     $scope.newUser = {};
     $scope.test = customerService.test;
-    $scope.title = "This is the login Controller";
-    $scope.login ="Log in to continue";
+    $scope.title = "Melancholy Motors . . .";
+    $scope.login ="Log in . . . to continue . . .";
     $scope.loginFunction = function(user){
         loginService.login(user);
         $scope.User = {};

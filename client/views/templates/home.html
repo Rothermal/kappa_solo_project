@@ -8,7 +8,8 @@
     </div>
 </md-toolbar>
 <!-- exact table from live demo -->
-<md-table-container>
+
+    <md-table-container style="width : 75%;" >
     <table md-table md-row-select ng-model="selected">
         <!--md-row-select multiple-->
         <thead md-head >
@@ -19,36 +20,30 @@
             <th md-column>Repair type</th>
             <th md-column>Date of Repair</th>
             <th md-column mdNumeric>Amount Paid</th>
-            <th md-column>Comments</th>
-            <!--ng-click="myFilter = 'id'; sort()"-->
-            <!--ng-click="myFilter = 'first_name'; sort()"-->
-            <!--ng-click="myFilter = 'model'; sort()"-->
-            <!--ng-click="myFilter = 'type'; sort()"-->
-            <!--ng-click="myFilter = 'type'; sort()"-->
-            <!--ng-click="myFilter = 'type'; sort()"-->
-            <!--<th md-column md-numeric>Sodium (mg)</th>-->
-            <!--<th md-column md-numeric>Calcium (%)</th>-->
-            <!--<th md-column md-numeric>Iron (%)</th>-->
+            <th md-column mdNumeric>Cost Of Parts</th>
+
+            <th md-column >Parts</th>
+
         </tr>
         </thead>
         <tbody md-body >
-        <tr md-row md-select="repair" ng-click="edit($event,repair)" md-auto-select ng-repeat="repair in repairs.object  | orderBy : '-id'">
+        <tr md-row  ng-click="edit($event,repair)" md-auto-select ng-repeat="repair in repairs.object  | orderBy : '-id'">
             <td md-cell>{{repair.id}}</td>
             <td md-cell>{{repair.first_name}} {{repair.last_name}}</td>
             <td md-cell>{{repair.year}} {{repair.make}} {{repair.model}}</td>
             <td md-cell> {{repair.type}}</td>
-            <td md-cell>{{repair.date_of_repair | date : 'longDate'}} </td>
-            <td md-cell  >{{repair.fee | number : 2}}</td>
-            <td md-cell  >{{repair.description}}</td>
+            <td md-cell>{{repair.date_of_repair | date : 'longDate' : '+0600'}} </td>
+            <td md-cell  >{{repair.fee | currency : $ : 2}}</td>
+            <td md-cell  >{{repair.fee | currency : $ : 2}}</td>
 
-            <!--<td md-cell>{{dessert.sodium.value}}</td>-->
-            <!--<td md-cell>{{dessert.calcium.value}}</td>-->
-            <!--<td md-cell>{{dessert.iron.value}}</td>-->
+            <td md-cell  ><md-button ng-href="/parts" ng-click="">Edit Parts</md-button></td>
+
         </tr>
         </tbody>
     </table>
 </md-table-container>
 
+<!--pagination currently not working, will not make it into this app by presentation time. but i like the look-->
 
 <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]"
                      md-page="query.page" md-total="count" md-on-paginate="getRepairs"

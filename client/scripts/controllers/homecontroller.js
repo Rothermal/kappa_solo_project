@@ -7,11 +7,14 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
 
     var customerService = CustomerService;
     var homeService = HomeService;
-    $scope.test = customerService.test;
-    $scope.title = "This is the Home Controller";
-    $scope.count = 0;
-    $scope.repairs = [];
-    //$scope.repair = {};
+
+        // should move this to  factory and inject it. running out of time to do things the best way.
+        $scope.repairTypeArray = ['Consultation','Engine Diagnostics','Engine Electrical','Engine Mechanical', 'Steering and Suspension','Heating and Cooling', 'Brakes', 'Maintenance'];
+
+        $scope.test = customerService.test;
+        $scope.title = "This is the Home Controller";
+        $scope.count = 0;
+        $scope.repairs = [];
 
     $scope.getRepairs = function(){
         homeService.getRepairs();
@@ -19,29 +22,10 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
         $scope.count = $scope.repairs.length;
     };
 
-    $scope.status = '  ';
     $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
 
 
-    //$scope.showPrompt = function(ev,repair) {
-    //    console.log(repair);
-    //    // Appending dialog to document.body to cover sidenav in docs app
-    //    var confirm = $mdDialog.prompt()
-    //        .title('Edit this Repair')
-    //        .textContent('all adjustments are final ')
-    //        .placeholder(repair.type)
-    //        .ariaLabel('Dog name')
-    //        .targetEvent(ev)
-    //        .ok('Save Changes')
-    //        .cancel('Cancel Edit');
-    //    $mdDialog.show(confirm).then(function(result) {
-    //        $scope.status = ' Repair was Saved  ' + result + '.';
-    //    }, function() {
-    //        $scope.status = ' No Changes Made';
-    //    });
-    //};
-
-
+// plan to include a sort feature on my table, some code for reversing the angular filter.
     //$scope.reverse = false;
     //$scope.sort = function(){
     //    if( $scope.reverse === true){
@@ -59,7 +43,6 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
             $scope.repair = repair;
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
             $mdDialog.show({
-                    //controller: HomeController,
                     templateUrl:'/assets/views/templates/editRepair.html',
                     parent: angular.element(document.body),
                     targetEvent: ev,
@@ -67,10 +50,9 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
                     //fullscreen: useFullScreen,
                     scope: $scope,
                     preserveScope: true
-                    //resolve:repair
                 })
                 .then(function(answer) {
-                    $scope.status = $scope.getRepairs();
+                   $scope.getRepairs();
                 }, function() {
                     $scope.status = 'You cancelled the dialog.';
                 });
@@ -89,25 +71,14 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
         };
         $scope.answer = function(response, repair) {
             $mdDialog.hide(response);
-            //homeService.editRepair(repair);
-            console.log(repair);
+            homeService.updateRepair(repair);
+            homeService.updateCustomer(repair);
         };
 
-        //function DialogController($scope, $mdDialog) {
-        //    console.log('dialog controller');
-        //    $scope.hide = function() {
-        //        $mdDialog.hide();
-        //    };
-        //    $scope.cancel = function() {
-        //        $mdDialog.cancel();
-        //    };
-        //    $scope.answer = function(response, repair) {
-        //        $mdDialog.hide(response);
-        //        homeService.editRepair(repair);
-        //    };
-        //}
+
 
     /// stuff for testing md tables
+    /// currently not in use.
     $scope.selected = [];
 
     $scope.query = {
@@ -115,15 +86,6 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
         limit: 10,
         page: 1
     };
-    //
-    //function success(desserts) {
-    //    $scope.desserts = desserts;
-    //}
-
-    //$scope.getDesserts = function () {
-    //    $scope.promise = $scope.repairs.get($scope.query,  $scope.getRepairs).$promise;
-    //};
-
 
 
     $scope.getRepairs();

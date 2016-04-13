@@ -5,7 +5,7 @@ console.log('grunt is watching');
 myApp.factory('CustomerService',['$http',function($http){
     var Customers = {};
     var Vehicles = {};
-    var test = 'injection is real';
+    var test = 'Despondent Auto Repairs at Depressed Prices';
     var lastPostedRepair_id = {};
 
 

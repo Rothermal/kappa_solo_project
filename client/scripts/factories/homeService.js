@@ -12,9 +12,25 @@ myApp.factory('HomeService',['$http',function($http){
         });
     };
 
+    var updateRepair = function(repair){
+
+        $http.put('/repairs',repair).then(function(response){
+           console.log('updated repair in factory', response.data);
+        });
+    };
+
+    var updateCustomer = function(customer){
+            console.log('before update',customer);
+        $http.put('/customers',customer).then(function(response){
+           console.log('update customer in factory',response.data);
+        });
+    };
+
     return {
       getRepairs:getRepairs,
-        repairs : Repairs
+        repairs : Repairs,
+        updateRepair:updateRepair,
+        updateCustomer:updateCustomer
     };
 
 }]);

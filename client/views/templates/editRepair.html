@@ -24,19 +24,33 @@
 
                 <md-input-container class="md-block" flex-gt-xs >
                     <label>Repair type: </label>
-                    <input type="text" ng-model="repair.type" />
+                    <!--<input type="text" ng-model="repair.type" />-->
+                    <md-select  ng-model="repair.type">
+                        <md-option ng-repeat="type in repairTypeArray" >{{type}}</md-option>
+                    </md-select>
                 </md-input-container>
 
                 </div>
                 <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-xs >
+                        <label>Email: </label>
+                        <input type="text" ng-model="repair.email" />
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-xs >
+                        <label>Phone Number: </label>
+                        <input type="tel" ng-model="repair.phone_number" />
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-xs >
                     <label>Vehicle Year: </label>
-                    <input type="text" ng-model="repair.year" />
+                    <input type="text" ng-model="repair.year"  />
                 </md-input-container>
 
                 <md-input-container class="md-block" flex-gt-xs >
                     <label>Make: </label>
-                    <input type="text" ng-model="repair.make" />
+                    <input type="text" ng-model="repair.make"  />
                 </md-input-container>
 
                 <md-input-container class="md-block" flex-gt-xs >
@@ -46,12 +60,12 @@
 
                 <md-input-container class="md-block" flex-gt-xs >
                     <label>Engine </label>
-                    <input type="text" ng-model="repair.engine" />
+                    <input type="text" ng-model="repair.engine"  />
                 </md-input-container>
 
                 <md-input-container class="md-block" flex-gt-xs >
                     <label>Transmission </label>
-                    <input type="text" ng-model="repair.transmission" />
+                    <input type="text" ng-model="repair.transmission"  />
                 </md-input-container>
 
                 <md-input-container class="md-block" flex-gt-xs >
@@ -66,6 +80,14 @@
                     <input type="text" ng-model="repair.description" />
                 </md-input-container>
                 </div>
+
+            <div>
+                <md-datepicker ng-model="repair.date_of_repair" md-placeholder="Enter date"></md-datepicker>
+            </div>
+
+            <md-button href="/addparts" ng-click="">
+                Add Parts to this Repair
+            </md-button>
 
         </md-dialog-content>
         <md-dialog-actions layout="row">

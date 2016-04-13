@@ -20,7 +20,7 @@ router.get('/',function(request,response){
             var query = client.query("SELECT repairs.id, type, description, fee, date_of_repair, first_name, last_name, phone_number, email, year, make, model, engine, transmission, vin  from repairs INNER JOIN customers ON customers.id = repairs.customer_id INNER JOIN vehicles ON vehicles.id = repairs.vehicle_id;");
         }
         query.on('row',function(row){
-            console.log(row);
+            //console.log(row);
             results.push(row);
         });
         query.on('end',function(){
@@ -74,6 +74,44 @@ router.post('/',function(request,response){
     });
 });
 
+router.put('/',function(request,response){
+    //console.log(request.body);
+    var updateRepair = {};
+    updateRepair.id = request.body.id;
+    updateRepair.fee = request.body.fee;
+    updateRepair.description = request.body.description;
+    updateRepair.date_of_repair = request.body.date_of_repair;
+    updateRepair.type = request.body.type;
+
+    console.log('repair update',updateRepair);
+
+    pg.connect(connectionString,function(err,client,done){
+        if(err){
+            done();
+            console.log("error connecting to database",err);
+            response.status(500).send(err);
+        } else{
+            var results = [];
+            var query = client.query("UPDATE repairs SET type = $5, description = $1 , fee = $2 ,  date_of_repair = $3 WHERE id = $4 ;",[ updateRepair.description, updateRepair.fee, updateRepair.date_of_repair, updateRepair.id, updateRepair.type]);
+        }
+        query.on('row',function(row){
+            console.log(row);
+            results.push(row);
+        });
+        query.on('end',function(){
+            done();
+            response.send(results);
+        });
+        query.on('error',function(error){
+            console.log('Error returning query', error);
+            done();
+            response.status(500).send(error);
+        });
+    });
+
+
+
+});
 
 
 

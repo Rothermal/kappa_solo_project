@@ -1,6 +1,13 @@
-h1{
-    color: #184840;
+/*body{*/
+    /*background-image: url("/assets/images/Edvard_Munch_-_Melancholy_(1894).jpg");*/
+    /*background-repeat:no-repeat ;*/
+    /*background-position: center;*/
+    /*background-color: #4F4D3F;*/
+/*}*/
+
+h1 h3{
+    color: #151fa1;
 }
 p{
-    color: #000;
+    color: #0a9c3f;
 }
