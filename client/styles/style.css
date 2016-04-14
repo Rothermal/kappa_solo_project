@@ -3,6 +3,10 @@
     /*background-repeat:no-repeat ;*/
     /*background-position: center;*/
     /*background-color: #4F4D3F;*/
+    /*background-size: 100%;*/
+/*}*/
+/*body{*/
+    /*color: yellow;*/
 /*}*/
 
 h1 h3{
@@ -11,3 +15,16 @@ h1 h3{
 p{
     color: #0a9c3f;
 }
+.date-picker {
+    float: right;
+    margin-right: 45px;
+    margin-bottom: 45px;
+}
+/*.container {*/
+    /*text-align: center;*/
+    /*padding: 10px 10px;*/
+/*}*/
+/*.table{*/
+    /*color: aliceblue;*/
+    /*opacity: .8;*/
+/*}*/

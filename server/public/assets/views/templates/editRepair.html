@@ -1,7 +1,7 @@
 <md-dialog aria-label="Edit Repair"  ng-cloak >
     <form  >
         <!--ng-submit="saveEdit(repair)">-->
-        <md-toolbar md-theme="docs-dark">
+        <md-toolbar >
             <div class="md-toolbar-tools">
                 <h2>Edit Repair</h2>
                 <span flex></span>
@@ -40,6 +40,11 @@
                         <label>Phone Number: </label>
                         <input type="tel" ng-model="repair.phone_number" />
                     </md-input-container>
+
+                    <!--<div>-->
+                        <!--<md-datepicker class="date-picker" ng-model="repair.date_of_repair " md-placeholder="Enter Repair date"></md-datepicker>-->
+                    <!--</div>-->
+
                 </div>
 
                 <div layout-gt-sm="row">
@@ -81,13 +86,65 @@
                 </md-input-container>
                 </div>
 
-            <div>
-                <md-datepicker ng-model="repair.date_of_repair" md-placeholder="Enter date"></md-datepicker>
+            <md-button  ng-click="showParts = !showParts" >
+                Add Additional Parts
+            </md-button>
+
+            <div layout-gt-sm="row" ng-show="showParts">
+
+            <md-input-container class="md-block" flex-gt-xs >
+                <label>Part Name: </label>
+                <input type="text" ng-model="repair.part_name"  />
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-xs >
+                <label>Part Description: </label>
+                <input type="text" ng-model="repair.partDescription"  />
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-xs >
+                <label>Part Vendor: </label>
+                <md-select  ng-model="repair.vendor">
+                    <md-option ng-repeat="vendor in vendorArray" >{{vendor}}</md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-xs >
+                <label>Part Cost :</label>
+                <input type="number" ng-model="repair.cost"  />
+            </md-input-container>
+
             </div>
 
-            <md-button href="/addparts" ng-click="">
-                Add Parts to this Repair
+            <md-button ng-show="showParts" ng-click="postParts(repair)" >
+                submit
             </md-button>
+
+            <div layout-gt-sm="row" ng-repeat="part in repair.parts.object">
+
+                <md-input-container class="md-block" flex-gt-xs >
+                    <label>Part Name: </label>
+                    <input type="text" ng-model="part.part_name"  />
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-xs >
+                    <label>Part Description: </label>
+                    <input type="text" ng-model="part.description"  />
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-xs >
+                    <label>Vendor: </label>
+                    <md-select  ng-model="part.vendor">
+                        <md-option ng-repeat="vendor in vendorArray" >{{vendor}}</md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-xs >
+                    <label>Cost :</label>
+                    <input type="number" ng-model="part.cost"  />
+                </md-input-container>
+
+    </div>
 
         </md-dialog-content>
         <md-dialog-actions layout="row">

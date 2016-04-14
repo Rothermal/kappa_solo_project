@@ -18,10 +18,27 @@ myApp.factory('PartsService',['$http',function($http){
       });
     };
 
+    var updatePart = function(parts){
+        //console.log('update to send',parts.object);
+
+        for(var i = 0 ;i< parts.object.length;i++) {
+             sendUpdate(parts.object[i]);
+        }
+    };
+
+    var sendUpdate = function(part){
+        $http.put('/parts', part).then(function (response) {
+            console.log('response in parts factory',response.data);
+
+        });
+    };
+
+
     return {
         postParts:postParts,
         getParts:getParts,
-        parts:Parts
+        parts:Parts,
+        updatePart: updatePart
     };
 
 }]);

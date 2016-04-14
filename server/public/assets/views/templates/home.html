@@ -19,25 +19,25 @@
             <th md-column><span>Vehicle</span></th>
             <th md-column>Repair type</th>
             <th md-column>Date of Repair</th>
-            <th md-column mdNumeric>Amount Paid</th>
-            <th md-column mdNumeric>Cost Of Parts</th>
+            <th md-column mdNumeric>Labor $</th>
+            <!--<th md-column mdNumeric>Cost Of Parts</th>-->
         </tr>
         </thead>
         <tbody md-body >
-        <tr md-row  ng-click="edit($event,repair)" md-auto-select ng-repeat="repair in repairs.object  | orderBy : '-id'">
+        <tr md-row  ng-click="getParts(repair.id); edit($event,repair) " md-auto-select ng-repeat="repair in repairs.object  | orderBy : '-id'">
             <td md-cell>{{repair.id}}</td>
             <td md-cell>{{repair.first_name}} {{repair.last_name}}</td>
             <td md-cell>{{repair.year}} {{repair.make}} {{repair.model}}</td>
             <td md-cell> {{repair.type}}</td>
             <td md-cell>{{repair.date_of_repair | date : 'longDate' : '+0600'}} </td>
             <td md-cell  >{{repair.fee | currency : $ : 2}}</td>
-            <td md-cell  >{{repair.fee | currency : $ : 2}}</td>
-
-
+            <!--<td md-cell  >{{repair.fee | currency : $ : 2}}</td>-->
         </tr>
         </tbody>
     </table>
+
 </md-table-container>
+
 
 <!--pagination currently not working, will not make it into this app by presentation time. but i like the look-->
 

@@ -11,9 +11,9 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
 
         // should move this to  factory and inject it. running out of time to do things the best way.
         $scope.repairTypeArray = ['Starting and Charging','Engine Diagnostics','Engine Electrical','Engine Mechanical', 'Steering and Suspension','Heating and Cooling', 'Brakes', 'Maintenance'];
-
+        $scope.vendorArray = ['Napa','AutoZone','CarQuest',"O'Reilly's",'Advance','Factory','Dealership','Amazon','Ebay','Red Rooster'];
         $scope.test = customerService.test;
-        $scope.title = "This is the Home Controller";
+        $scope.title = "this is the home view. ";
         //$scope.count = 0;
         $scope.repairs = [];
         $scope.part = {};
@@ -26,15 +26,32 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
     };
 
     $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+
+
+
     $scope.getParts = function(repairId){
         console.log(repairId);
-
+        partsService.getParts(repairId);
+        $scope.parts = partsService.parts;
 
     };
 
-    $scope.getParts = function(repairId){
-        partsService.getParts(repairId);
-        $scope.parts = partsService.parts;
+    $scope.postParts = function(repair){
+      console.log('clicked', repair);
+        var part = {};
+        part.name = repair.part_name;
+        part.description = repair.partDescription;
+        part.vendor = repair.vendor;
+        part.cost = repair.cost;
+        part.repair_id = repair.id;
+        partsService.postParts(part);
+
+        $scope.repair.part_name = "";
+        $scope.repair.partDescription = "";
+        $scope.repair.vendor = "";
+        $scope.repair.cost = "";
+
+
     };
 
 //Edit
@@ -42,6 +59,8 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
             console.log('hit edit');
             console.log(repair);
             $scope.repair = repair;
+            $scope.repair.parts = $scope.parts;
+            console.log($scope.repair);
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
             $mdDialog.show({
                     templateUrl:'/assets/views/templates/editRepair.html',
@@ -72,8 +91,11 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
         };
         $scope.answer = function(response, repair) {
             $mdDialog.hide(response);
+            //console.log('parts for update',repair.parts);
             homeService.updateRepair(repair);
             homeService.updateCustomer(repair);
+            partsService.updatePart(repair.parts);
+
         };
 
 

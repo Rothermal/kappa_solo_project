@@ -44,5 +44,75 @@ router.post('/',function(request,response){
 
 });
 
+router.get('/:id',function(request,response){
+
+    var repair_id = request.params.id;
+
+
+    pg.connect(connectionString,function(err,client,done){
+        if(err){
+            done();
+            console.log("error connecting to database",err);
+            response.status(500).send(err);
+        } else{
+            var results = [];
+            var query = client.query("SELECT * FROM parts WHERE repair_id = $1;",[repair_id]);
+        }
+        query.on('row',function(row){
+            console.log(row);
+            results.push(row);
+        });
+        query.on('end',function(){
+            done();
+            response.send(results);
+        });
+        query.on('error',function(error){
+            console.log('Error returning query', error);
+            done();
+            response.status(500).send(error);
+        });
+    });
+
+
+});
+
+
+router.put('/',function(request,response){
+    //console.log('parts in put',request.body);
+
+
+    var name = request.body.part_name;
+    var description = request.body.description;
+    var vendor = request.body.vendor;
+    var cost = request.body.cost;
+    var id = request.body.id;
+
+
+    pg.connect(connectionString,function(err,client,done){
+        if(err){
+            done();
+            console.log("error connecting to database",err);
+            response.status(500).send(err);
+        } else{
+            var results = [];
+            var query = client.query("UPDATE  parts SET part_name = $1, description = $2, vendor = $3, cost = $4 WHERE id = $5;",[name,description,vendor,cost,id]);
+        }
+        query.on('row',function(row){
+            console.log(row);
+            results.push(row);
+        });
+        query.on('end',function(){
+            done();
+            response.send(results);
+        });
+        query.on('error',function(error){
+            console.log('Error returning query', error);
+            done();
+            response.status(500).send(error);
+        });
+    });
+
+
+});
 
 module.exports = router;
