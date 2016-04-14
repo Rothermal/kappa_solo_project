@@ -21,9 +21,6 @@
             <th md-column>Date of Repair</th>
             <th md-column mdNumeric>Amount Paid</th>
             <th md-column mdNumeric>Cost Of Parts</th>
-
-            <th md-column >Parts</th>
-
         </tr>
         </thead>
         <tbody md-body >
@@ -36,7 +33,6 @@
             <td md-cell  >{{repair.fee | currency : $ : 2}}</td>
             <td md-cell  >{{repair.fee | currency : $ : 2}}</td>
 
-            <td md-cell  ><md-button ng-href="/parts" ng-click="">Edit Parts</md-button></td>
 
         </tr>
         </tbody>

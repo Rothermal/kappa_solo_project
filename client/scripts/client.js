@@ -6,7 +6,7 @@ var myApp = angular.module('myApp',['ngRoute', "ngMaterial", "ngAnimate",'md.dat
 
 myApp.config(['$routeProvider','$locationProvider','$mdThemingProvider', function($routeProvider,$locationProvider,$mdThemingProvider) {
 
-    $mdThemingProvider.theme('docs-dark', 'default')
+    $mdThemingProvider.theme('docs-dark')
         .primaryPalette('yellow')
         .dark();
 
@@ -31,10 +31,10 @@ myApp.config(['$routeProvider','$locationProvider','$mdThemingProvider', functio
             templateUrl: 'assets/views/templates/addparts.html',
             controller: 'PartsController'
         })
-        .when('/editRepair', {
-            templateUrl: 'assets/views/templates/editRepair.html',
-            controller: 'HomeController'
-        })
+        //.when('/editRepair', {
+        //    templateUrl: 'assets/views/templates/editRepair.html',
+        //    controller: 'HomeController'
+        //})
         .otherwise({
             redirectTo: '/'
         });

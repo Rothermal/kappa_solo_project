@@ -2,39 +2,40 @@
  * Created by JFCS on 4/6/16.
  */
 
-myApp.controller('HomeController',['$scope','$http','CustomerService','HomeService','$mdDialog','$mdMedia',
-    function($scope,$http,CustomerService,HomeService,$mdDialog,$mdMedia){
+myApp.controller('HomeController',['$scope','$http','CustomerService','HomeService','PartsService','$mdDialog','$mdMedia',
+    function($scope,$http,CustomerService,HomeService,PartsService,$mdDialog,$mdMedia){
 
-    var customerService = CustomerService;
-    var homeService = HomeService;
+        var customerService = CustomerService;
+        var homeService = HomeService;
+        var partsService = PartsService;
 
         // should move this to  factory and inject it. running out of time to do things the best way.
-        $scope.repairTypeArray = ['Consultation','Engine Diagnostics','Engine Electrical','Engine Mechanical', 'Steering and Suspension','Heating and Cooling', 'Brakes', 'Maintenance'];
+        $scope.repairTypeArray = ['Starting and Charging','Engine Diagnostics','Engine Electrical','Engine Mechanical', 'Steering and Suspension','Heating and Cooling', 'Brakes', 'Maintenance'];
 
         $scope.test = customerService.test;
         $scope.title = "This is the Home Controller";
-        $scope.count = 0;
+        //$scope.count = 0;
         $scope.repairs = [];
+        $scope.part = {};
+        $scope.parts = [];
 
     $scope.getRepairs = function(){
         homeService.getRepairs();
         $scope.repairs =  homeService.repairs;
-        $scope.count = $scope.repairs.length;
+        //$scope.count = $scope.repairs.length;
     };
 
     $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+    $scope.getParts = function(repairId){
+        console.log(repairId);
 
 
-// plan to include a sort feature on my table, some code for reversing the angular filter.
-    //$scope.reverse = false;
-    //$scope.sort = function(){
-    //    if( $scope.reverse === true){
-    //        $scope.reverse = false;
-    //    }  else{
-    //        $scope.reverse = true;
-    //    }
-    //    console.log('reversed??',$scope.reverse);
-    //};
+    };
+
+    $scope.getParts = function(repairId){
+        partsService.getParts(repairId);
+        $scope.parts = partsService.parts;
+    };
 
 //Edit
         $scope.edit = function(ev, repair) {
@@ -91,3 +92,14 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
     $scope.getRepairs();
 
 }]);
+
+// plan to include a sort feature on my table, some code for reversing the angular filter.
+//$scope.reverse = false;
+//$scope.sort = function(){
+//    if( $scope.reverse === true){
+//        $scope.reverse = false;
+//    }  else{
+//        $scope.reverse = true;
+//    }
+//    console.log('reversed??',$scope.reverse);
+//};

@@ -19,7 +19,7 @@ myApp.controller('PartsController',['$scope','CustomerService','PartsService',fu
     $scope.postParts = function(){
         console.log($scope.parts);
         for(var i = 0 ;i< $scope.parts.length;i++){
-            partsService.postparts($scope.parts[i]);
+            partsService.postParts($scope.parts[i]);
         }
     };
 
