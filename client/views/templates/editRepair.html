@@ -113,8 +113,8 @@
             </md-input-container>
 
             </div>
-
-            <md-button class='md-button md-primary' ng-show="showParts" ng-click="postParts(repair); getParts(repair.id)" >
+            <!--very dirty parts update fix.. not happy with this, but it appears functional at this time. need to move on.-->
+            <md-button class='md-button md-primary' ng-show="showParts" ng-click="getParts(repair.id); postParts(repair); getParts(repair.id)" >
                 Add Part to Repair
             </md-button>
 
