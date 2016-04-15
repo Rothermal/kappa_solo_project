@@ -58,6 +58,7 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
         $scope.edit = function(ev, repair) {
             console.log('hit edit');
             console.log(repair);
+            repair.date_of_repair = new Date(repair.date_of_repair);
             $scope.repair = repair;
             $scope.repair.parts = $scope.parts;
             console.log($scope.repair);

@@ -41,9 +41,9 @@
                         <input type="tel" ng-model="repair.phone_number" />
                     </md-input-container>
 
-                    <!--<div>-->
-                        <!--<md-datepicker class="date-picker" ng-model="repair.date_of_repair " md-placeholder="Enter Repair date"></md-datepicker>-->
-                    <!--</div>-->
+                    <div>
+                        <md-datepicker class="date-picker" ng-model="repair.date_of_repair " md-placeholder="Enter Repair date"></md-datepicker>
+                    </div>
 
                 </div>
 
@@ -116,7 +116,7 @@
 
             </div>
 
-            <md-button ng-show="showParts" ng-click="postParts(repair)" >
+            <md-button ng-show="showParts" ng-click="postParts(repair); getParts(repair.id)" >
                 submit
             </md-button>
 
