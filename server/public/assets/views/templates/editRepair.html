@@ -1,6 +1,5 @@
 <md-dialog aria-label="Edit Repair"  ng-cloak >
     <form  >
-        <!--ng-submit="saveEdit(repair)">-->
         <md-toolbar >
             <div class="md-toolbar-tools">
                 <h2>Edit Repair</h2>
@@ -24,7 +23,6 @@
 
                 <md-input-container class="md-block" flex-gt-xs >
                     <label>Repair type: </label>
-                    <!--<input type="text" ng-model="repair.type" />-->
                     <md-select  ng-model="repair.type">
                         <md-option ng-repeat="type in repairTypeArray" >{{type}}</md-option>
                     </md-select>
@@ -116,8 +114,8 @@
 
             </div>
 
-            <md-button ng-show="showParts" ng-click="postParts(repair); getParts(repair.id)" >
-                submit
+            <md-button class='md-button md-primary' ng-show="showParts" ng-click="postParts(repair); getParts(repair.id)" >
+                Add Part to Repair
             </md-button>
 
             <div layout-gt-sm="row" ng-repeat="part in repair.parts.object">
