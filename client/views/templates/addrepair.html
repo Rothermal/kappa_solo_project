@@ -39,6 +39,11 @@
                         <label>Amount billed</label>
                     <input type="number" ng-model="repair.fee">
                 </md-input-container>
+                    <div>
+                        <md-datepicker class="date-picker" ng-model="repair.date" md-placeholder="Enter date"></md-datepicker>
+                    </div>
+
+
                 </div>
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
@@ -47,9 +52,6 @@
                     </md-input-container>
                 </div>
 
-                <div>
-                <md-datepicker class="datepicker" ng-model="repair.date" md-placeholder="Enter date"></md-datepicker>
-                </div>
             </div>
 
             <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>

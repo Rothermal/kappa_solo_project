@@ -5,6 +5,17 @@
         </div>
         <form name="new-parts">
             <div layout-gt-sm="row">
+
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>List Of Repairs </label>
+                <md-select  ng-model="repair">
+                    <md-option ng-repeat="repair in repairs.object | orderBy : '-id'" >
+                        {{repair.id}}   {{repair.type}} {{repair.first_name}} {{repair.last_name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            </div>
+            <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>part name</label>
                     <input ng-model="part.name">
@@ -18,8 +29,10 @@
 
             <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
-                    <label>vendor</label>
-                    <input ng-model="part.vendor">
+                    <label>Vendor: </label>
+                    <md-select  ng-model="part.vendor">
+                        <md-option ng-repeat="vendor in vendorArray" >{{vendor}}</md-option>
+                    </md-select>
                 </md-input-container>
 
                 <md-input-container class="md-block" flex-gt-sm>
@@ -28,7 +41,7 @@
                 </md-input-container>
             </div>
             <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-                <md-button ng-click="addPart(part)" class="md-raised">Add Part to list</md-button>
+                <md-button ng-click="addPart(part,repair)" class="md-raised">Add Part to list</md-button>
             </section>
 
             <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>

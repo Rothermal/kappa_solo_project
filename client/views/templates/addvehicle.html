@@ -11,16 +11,19 @@
                         <md-option ng-repeat="customer in customers.object" ng-click="saveCustomerId(customer.id)" >{{customer.first_name}} {{customer.last_name}}</md-option>
                     </md-select>
                 </md-input-container>
+            </div>
+            <div layout-gt-sm="row">
 
+            </div>
+
+            <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
-                    <label>vehicle year</label>
+                    <label>Vehicle Year</label>
                     <md-select  ng-model="vehicle.year">
                         <md-option ng-repeat="year in years" ng-click="getMakesList(year)" >{{year}}</md-option>
                     </md-select>
                 </md-input-container>
-            </div>
 
-            <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Vehicle Make</label>
                     <md-select  ng-model="vehicle.make">
@@ -28,21 +31,23 @@
                     </md-select>
                 </md-input-container>
 
-                <div layout-gt-sm="row">
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>Vehicle model</label>
-                        <md-select  ng-model="vehicle.model">
-                            <md-option ng-repeat="model in models " ng-click="getEngine(model.name)">{{model.name}}</md-option>
-                        </md-select>
-                    </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Vehicle model</label>
+                    <md-select  ng-model="vehicle.model">
+                        <md-option ng-repeat="model in models " ng-click="getEngine(model.name)">{{model.name}}</md-option>
+                    </md-select>
+                </md-input-container>
 
+            </div>
+
+                <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Engine</label>
                         <md-select  ng-model="vehicle.engine">
                             <md-option ng-repeat="engine in engines.object" " >{{engine.engine.size}}</md-option>
                         </md-select>
                     </md-input-container>
-                </div>
+
 
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Transmission</label>
@@ -51,13 +56,15 @@
                         <md-option>Manual</md-option>
                     </md-select>
                 </md-input-container>
+                </div>
 
-                <div>
+            <div layout-gt-sm="row">
+
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Vehicle Identification Number</label>
                         <input type="text" ng-model="vehicle.vin">
                     </md-input-container>
-                </div>
+            </div>
 
             </div>
 

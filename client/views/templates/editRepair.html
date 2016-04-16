@@ -38,6 +38,10 @@
                         <label>Phone Number: </label>
                         <input type="tel" ng-model="repair.phone_number" />
                     </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Mileage </label>
+                        <input type="number" ng-model="repair.mileage">
+                    </md-input-container>
 
                     <div>
                         <md-datepicker class="date-picker" ng-model="repair.date_of_repair " md-placeholder="Enter Repair date"></md-datepicker>
@@ -76,6 +80,13 @@
                     <input type="text" ng-model="repair.fee" />
                 </md-input-container>
                 </div>
+
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-xs >
+                    <label>Vehicle Identification Number: </label>
+                    <input type="text" ng-model="repair.vin" />
+                </md-input-container>
+            </div>
 
                 <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-xs >
