@@ -1,4 +1,4 @@
-<div layout-align="center center" layout="column" >
+<div class="home" layout-align="center center" layout="column" >
 <h3 >{{title}}</h3>
     <p>{{test}}</p>
 
@@ -19,7 +19,8 @@
             <th md-column><span>Vehicle</span></th>
             <th md-column>Repair type</th>
             <th md-column>Date of Repair</th>
-            <th md-column mdNumeric>Labor $</th>
+            <!--<th md-column mdNumeric>Labor $</th>-->
+            <th md-column mdNumeric>Mileage</th>
             <!--<th md-column mdNumeric>Cost Of Parts</th>-->
         </tr>
         </thead>
@@ -30,7 +31,7 @@
             <td md-cell>{{repair.year}} {{repair.make}} {{repair.model}}</td>
             <td md-cell> {{repair.type}}</td>
             <td md-cell>{{repair.date_of_repair | date : 'longDate' : '+0600'}} </td>
-            <td md-cell  >{{repair.fee | currency : $ : 2}}</td>
+            <td md-cell  >{{repair.mileage}}</td>
             <!--<td md-cell  >{{repair.fee | currency : $ : 2}}</td>-->
         </tr>
         </tbody>

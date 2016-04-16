@@ -17,7 +17,7 @@ router.get('/',function(request,response){
             response.status(500).send(err);
         } else{
             var results = [];
-            var query = client.query("SELECT repairs.id, type, description, fee, date_of_repair, first_name, last_name, phone_number, email, year, make, model, engine, transmission, vin  from repairs INNER JOIN customers ON customers.id = repairs.customer_id INNER JOIN vehicles ON vehicles.id = repairs.vehicle_id;");
+            var query = client.query("SELECT repairs.id, type, description, fee, date_of_repair, first_name, last_name, phone_number, email, year, make, model, engine, transmission, vin, mileage  from repairs INNER JOIN customers ON customers.id = repairs.customer_id INNER JOIN vehicles ON vehicles.id = repairs.vehicle_id;");
         }
         query.on('row',function(row){
             //console.log(row);
@@ -48,6 +48,7 @@ router.post('/',function(request,response){
     repair.description = request.body.description;
     repair.date_of_repair= request.body.date;
     repair.fee = request.body.fee;
+    repair.mileage = request.body.mileage;
     pg.connect(connectionString,function(err,client,done){
         if(err){
             done();
@@ -55,7 +56,7 @@ router.post('/',function(request,response){
             response.status(500).send(err);
         } else{
             var results = [];
-            var query = client.query("INSERT INTO repairs(type, description, fee, vehicle_id, date_of_repair, customer_id) VALUES($1,$2,$3,$4,$5,$6) RETURNING id;",[repair.type,repair.description,repair.fee, repair.vehicle_id,repair.date_of_repair,repair.customer_id]);
+            var query = client.query("INSERT INTO repairs(type, description, fee, vehicle_id, date_of_repair, customer_id, mileage) VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING id;",[repair.type,repair.description,repair.fee, repair.vehicle_id,repair.date_of_repair,repair.customer_id,repair.mileage]);
 
         }
         query.on('row',function(row){
@@ -82,6 +83,7 @@ router.put('/',function(request,response){
     updateRepair.description = request.body.description;
     updateRepair.date_of_repair = request.body.date_of_repair;
     updateRepair.type = request.body.type;
+    updateRepair.mileage = request.body.mileage;
 
     //console.log('repair update',updateRepair);
 
@@ -92,7 +94,7 @@ router.put('/',function(request,response){
             response.status(500).send(err);
         } else{
             var results = [];
-            var query = client.query("UPDATE repairs SET type = $5, description = $1 , fee = $2 ,  date_of_repair = $3 WHERE id = $4 ;",[ updateRepair.description, updateRepair.fee, updateRepair.date_of_repair, updateRepair.id, updateRepair.type]);
+            var query = client.query("UPDATE repairs SET type = $5, description = $1 , fee = $2 ,  date_of_repair = $3 , mileage = $6 WHERE id = $4 ;",[ updateRepair.description, updateRepair.fee, updateRepair.date_of_repair, updateRepair.id, updateRepair.type, updateRepair.mileage]);
         }
         query.on('row',function(row){
             console.log(row);

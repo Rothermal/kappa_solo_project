@@ -1,40 +1,74 @@
 
+<!--changed side nav to a fab toolbar-->
+<!--<div layout="row" ng-controller="SidenavController">-->
+    <!--<md-sidenav md-component-id="left" class="md-sidenav-left">-->
+        <!--Left Nav!-->
+        <!--<form>-->
+            <!--<md-input-container>-->
+                <!--<label for="testInput">Test input</label>-->
+                <!--<input id="testInput" type="text" ng-model="data" md-autofocus>-->
+            <!--</md-input-container>-->
 
-<div layout="row" ng-controller="SidenavController">
-    <md-sidenav md-component-id="left" class="md-sidenav-left">
-        Left Nav!
-        <form>
-            <md-input-container>
-                <label for="testInput">Test input</label>
-                <input id="testInput" type="text" ng-model="data" md-autofocus>
-            </md-input-container>
+            <!--<div>-->
+            <!--<md-input-container>-->
+                <!--<div>-->
+                    <!--<a href="/addcustomer" ng-click="toggleLeftMenu()">add customer</a>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<a href="/addvehicle" ng-click="toggleLeftMenu()">add vehicle</a>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<a href="/addrepair" ng-click="toggleLeftMenu()">add repair</a>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<a href="/addparts" ng-click="toggleLeftMenu()">add parts</a>-->
+                <!--</div>-->
 
-            <div>
-            <md-input-container>
-                <div>
-                    <a href="/addcustomer" ng-click="toggleLeftMenu()">add customer</a>
-                </div>
-                <div>
-                    <a href="/addvehicle" ng-click="toggleLeftMenu()">add vehicle</a>
-                </div>
-                <div>
-                    <a href="/addrepair" ng-click="toggleLeftMenu()">add repair</a>
-                </div>
-                <div>
-                    <a href="/addparts" ng-click="toggleLeftMenu()">add parts</a>
-                </div>
+                <!--<div>-->
+                    <!--<a href="/" ng-click="toggleLeftMenu()">home</a>-->
+                <!--</div>-->
+            <!--</md-input-container>-->
+            <!--</div>-->
+        <!--</form>-->
+    <!--</md-sidenav>-->
+    <!--<md-content>-->
+        <!--<md-button ng-click="toggleLeftMenu()">-->
+            <!--Open Nav Panel-->
+        <!--</md-button>-->
+    <!--</md-content>-->
 
-                <div>
-                    <a href="/" ng-click="toggleLeftMenu()">home</a>
-                </div>
-            </md-input-container>
-            </div>
-        </form>
-    </md-sidenav>
-    <md-content>
-        <md-button ng-click="toggleLeftMenu()">
-            Open Nav Panel
-        </md-button>
+<!--</div>-->
+
+<div ng-controller="SidenavController" ng-cloak>
+<md-content>
+    <md-fab-toolbar md-open="demo.isOpen" count="demo.count"
+                    md-direction="{{demo.selectedDirection}}">
+        <md-fab-trigger class="align-with-text">
+            <md-button aria-label="menu" class="md-fab md-accent">
+                <md-icon md-svg-src="assets/images/menu.svg"></md-icon>
+            </md-button>
+        </md-fab-trigger>
+        <md-toolbar>
+            <md-fab-actions class="md-toolbar-tools">
+                <md-button href="/" aria-label="home" class="md-button">
+                    Home
+                </md-button>
+                <md-button href="/addcustomer" aria-label="customer" class="md-button">
+                    Add a New Customer
+                </md-button>
+                <md-button href="/addvehicle"  aria-label="vehicle" class="md-button">
+                    Add a New Vehicle
+                </md-button>
+                <md-button href="/addrepair" aria-label="repair" class="md-button">
+                    Add a New Repair
+                </md-button>
+                <md-button href="/addparts" aria-label="parts" class="md-button">
+                    Add Parts to Repair
+                </md-button>
+
+            </md-fab-actions>
+        </md-toolbar>
+    </md-fab-toolbar>
+
     </md-content>
-
 </div>

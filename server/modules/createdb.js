@@ -51,6 +51,7 @@ pg.connect(connectionString, function(err, client, done){
         //ALTER TABLE "public"."repairs"
         //ADD COLUMN "customer_id" integer,
         //    ADD CONSTRAINT "customers.id" FOREIGN KEY ("customer_id") REFERENCES "public"."customers"("id");
+        //ALTER TABLE "public"."repairs" ADD COLUMN "mileage" integer;
 
 
         query.on('end', function(){

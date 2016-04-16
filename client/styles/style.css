@@ -1,30 +1,60 @@
-/*body{*/
-    /*background-image: url("/assets/images/Edvard_Munch_-_Melancholy_(1894).jpg");*/
-    /*background-repeat:no-repeat ;*/
-    /*background-position: center;*/
-    /*background-color: #4F4D3F;*/
+.header {
+    background-image: url("/assets/images/melancholy-of-departure.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #4F4D3F;
+    height: 300px;
+    background-size: 100%;
+}
+.home {
+    /*background-image: url("/assets/images/Starry_Night_Over_the_Rhone.jpg");*/
     /*background-size: 100%;*/
-/*}*/
-/*body{*/
-    /*color: yellow;*/
-/*}*/
+    background-color: #d4dbd8;
+}
+.footer {
+    background-image: url("/assets/images/Edvard_Munch_-_Melancholy_(1894).jpg");
+    background-size: 100%;
+}
+.login-body{
+    background-image: url("/assets/images/sad_background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: #000000;
+    color: aliceblue;
+}
+.login-div{
+    /*width : 300px;*/
+    /*height: 275px;*/
+    /*background-color: #bfedf3;*/
+    /*margin: 0 auto;*/
+}
+.login-mdcontent{
+    width: 350px;
+    margin: 0 auto;
+}
+
 
 h1 h3{
-    color: #151fa1;
+    color: aliceblue;
 }
 p{
-    color: #0a9c3f;
+    color: #bfedf3;
 }
 .date-picker {
     float: right;
     margin-right: 45px;
     margin-bottom: 45px;
 }
-/*.container {*/
-    /*text-align: center;*/
-    /*padding: 10px 10px;*/
-/*}*/
-/*.table{*/
-    /*color: aliceblue;*/
-    /*opacity: .8;*/
-/*}*/
+
+.face{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.face img{
+
+    height: 150px;
+    width: 175px;
+    border: solid;
+
+}

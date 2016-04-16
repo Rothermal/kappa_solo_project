@@ -8,7 +8,7 @@ myApp.factory('PartsService',['$http',function($http){
      console.log(parts);
         $http.post('/parts', parts).then(function (response) {
         console.log(response);
-            getParts(parts.id);
+            //getParts(parts.id);
         });
     };
 

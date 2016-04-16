@@ -27,23 +27,28 @@
                         <md-option ng-repeat="type in repairTypeArray" >{{type}}</md-option>
                     </md-select>
                 </md-input-container>
+                </div>
 
                 <div layout-gt-sm="row">
-                <md-input-container class="md-block" flex-gt-sm>
-                <label>Description of Repair</label>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Current Mileage </label>
+                        <input type="number" ng-model="repair.mileage">
+                    </md-input-container>
 
-                    <input type="text" ng-model="repair.description">
-
-                </md-input-container>
-
-                <md-input-container class="md-block" flex-gt-sm>
-                <label>Amount billed</label>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Amount billed</label>
                     <input type="number" ng-model="repair.fee">
-
                 </md-input-container>
                 </div>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Description of Repair</label>
+                        <input type="text" ng-model="repair.description">
+                    </md-input-container>
+                </div>
+
                 <div>
-                <md-datepicker ng-model="repair.date" md-placeholder="Enter date"></md-datepicker>
+                <md-datepicker class="datepicker" ng-model="repair.date" md-placeholder="Enter date"></md-datepicker>
                 </div>
             </div>
 
