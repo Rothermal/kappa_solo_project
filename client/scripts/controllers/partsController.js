@@ -22,17 +22,12 @@ myApp.controller('PartsController',['$scope','CustomerService','PartsService','H
         console.log('clicked',part,repair);
         // todo need to figure out a better way to handle this.
         // this is a dirty fix for now. have ideas for better ways to track repairs and parts, ran out of time for implementation.
-        part.repair_id = repair.charAt(0)+repair.charAt(1)+repair.charAt(2)+repair.charAt(3);
+        part.repair_id = repair.charAt(0)+repair.charAt(1)+repair.charAt(2);
         partsService.postParts(part);
         $scope.part = {};
     };
 
-    //$scope.postParts = function(){
-    //    console.log($scope.parts);
-    //    for(var i = 0 ;i< $scope.parts.length;i++){
-    //        partsService.postParts($scope.parts[i]);
-    //    }
-    //};
+
 
     $scope.getRepairs();
 

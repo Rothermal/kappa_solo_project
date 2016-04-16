@@ -33,11 +33,18 @@ myApp.factory('VehicleService',['$http',function($http){
         });
     };
 
+    var updateVehicle = function(vehicle){
+        console.log('vehicle in factory update call',vehicle);
+        $http.put('/vehicles',vehicle).then(function(response){
+            console.log(response);
+        });
+    };
+
     var getEngineList = function(vehicle){
       console.log(vehicle);
-        year = vehicle.year;
-        make = vehicle.make;
-        model = vehicle.model;
+      var  year = vehicle.year;
+      var  make = vehicle.make;
+      var  model = vehicle.model;
         $http.get('/edmunds/engine/'+ year+'/'+ make+'/'+ model).then(function(response){
             console.log(response.data.styles);
             Engines.object = response.data.styles;
@@ -51,7 +58,8 @@ myApp.factory('VehicleService',['$http',function($http){
         makes:Makes,
         postVehicle:postVehicle,
         getEngines:getEngineList,
-        engines:Engines
+        engines:Engines,
+        updateVehicle:updateVehicle
     };
 
 }]);

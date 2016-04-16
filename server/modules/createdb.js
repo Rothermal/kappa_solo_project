@@ -45,7 +45,7 @@ pg.connect(connectionString, function(err, client, done){
             done();
         });
         //Check Fourth table
-        query = client.query('CREATE TABLE IF NOT EXISTS "public"."repairs" ("id" serial,"type" text,"description" text,"date" date,"fee" integer,"part_id" text,"vehicle_id" text,PRIMARY KEY ("id"),CONSTRAINT "parts.id" FOREIGN KEY ("part_id") REFERENCES "public"."parts"("id"),CONSTRAINT "vehicles.id" FOREIGN KEY ("vehicle_id") REFERENCES "public"."vehicles"("id"));');
+        query = client.query('CREATE TABLE IF NOT EXISTS "public"."repairs" ("id" serial,"type" text,"description" text,"date" date,"fee" integer,"mileage" integer,"vehicle_id" text,"customer_id" integer, PRIMARY KEY ("id"),CONSTRAINT "vehicles.id" FOREIGN KEY ("vehicle_id") REFERENCES "public"."vehicles"("id"), CONSTRAINT "customers.id" FOREIGN KEY ("customer_id") REFERENCES "public"."customers"("id"));');
 
         // todo dont forget to update this create table for heroku.
         //ALTER TABLE "public"."repairs"

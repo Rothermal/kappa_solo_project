@@ -10,7 +10,7 @@
                 <label>List Of Repairs </label>
                 <md-select  ng-model="repair">
                     <md-option ng-repeat="repair in repairs.object | orderBy : '-id'" >
-                        {{repair.id}}   {{repair.type}} {{repair.first_name}} {{repair.last_name}}
+                        {{repair.id}}     {{repair.type}} {{repair.first_name}} {{repair.last_name}}
                     </md-option>
                 </md-select>
             </md-input-container>
@@ -41,16 +41,11 @@
                 </md-input-container>
             </div>
             <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-                <md-button ng-click="addPart(part,repair)" class="md-raised">Add Part to list</md-button>
+                <md-button ng-click="addPart(part,repair)" class="md-raised">Add Part to Repair</md-button>
             </section>
 
-            <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-                <md-button ng-click="postParts(parts)" class="md-raised">SUBMIT</md-button>
-            </section>
+
         </form>
-        <div ng-repeat="part in parts" >
-            <p> {{part.name}}</p>
-        </div>
     </div>
 </md-content>
 </div>

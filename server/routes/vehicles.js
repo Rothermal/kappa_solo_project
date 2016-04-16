@@ -74,4 +74,42 @@ router.post('/',function(request,response){
 
 
 
+router.put('/',function(request,response){
+    console.log('request in vehicles post ',request.body);
+    var year = request.body.year;
+    var make = request.body.make;
+    var model = request.body.model;
+    var engine = request.body.engine;
+    var transmission = request.body.transmission;
+    var vin = request.body.vin;
+    var repair_id = request.body.id;
+
+    pg.connect(connectionString,function(err,client,done){
+        if(err){
+            done();
+            console.log("error connecting to database",err);
+            response.status(500).send(err);
+        } else{
+            var results = [];
+            var query = client.query('UPDATE vehicles SET year = $1, make = $2, model = $3, engine = $4, transmission = $5, vin = $6 FROM repairs WHERE repairs.id = $7 and repairs.vehicle_id = vehicles.id;',[ year,make,model,engine,transmission,vin,repair_id ]);
+        }
+        query.on('row',function(row){
+            console.log(row);
+            results.push(row);
+        });
+        query.on('end',function(){
+            done();
+            response.send(results);
+        });
+        query.on('error',function(error){
+            console.log('Error returning query', error);
+            done();
+            response.status(500).send(error);
+        });
+    });
+
+});
+
+
+
 module.exports = router;

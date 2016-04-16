@@ -2,12 +2,13 @@
  * Created by JFCS on 4/6/16.
  */
 
-myApp.controller('HomeController',['$scope','$http','CustomerService','HomeService','PartsService','$mdDialog','$mdMedia',
-    function($scope,$http,CustomerService,HomeService,PartsService,$mdDialog,$mdMedia){
+myApp.controller('HomeController',['$scope','$http','CustomerService','HomeService','PartsService','VehicleService','$mdDialog','$mdMedia',
+    function($scope,$http,CustomerService,HomeService,PartsService,VehicleService,$mdDialog,$mdMedia){
 
         var customerService = CustomerService;
         var homeService = HomeService;
         var partsService = PartsService;
+        var vehicleService = VehicleService;
 
         // should move this to  factory and inject it. running out of time to do things the best way.
         $scope.repairTypeArray = ['Starting and Charging','Engine Diagnostics','Engine Electrical','Engine Mechanical', 'Steering and Suspension','Heating and Cooling', 'Brakes', 'Maintenance'];
@@ -16,8 +17,13 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
         $scope.title = "this is the home view. ";
         //$scope.count = 0;
         $scope.repairs = [];
+
+        // builds parts list for edit form.
         $scope.part = {};
         $scope.parts = [];
+
+
+
 
     $scope.getRepairs = function(){
         homeService.getRepairs();
@@ -36,25 +42,27 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
 
     };
 
-    $scope.postParts = function(repair){
-      console.log('clicked', repair);
-        var part = {};
-        part.name = repair.part_name;
-        part.description = repair.partDescription;
-        part.vendor = repair.vendor;
-        part.cost = repair.cost;
-        part.repair_id = repair.id;
-        partsService.postParts(part);
+    //$scope.postParts = function(repair){
+    //  console.log('clicked', repair);
+    //    var part = {};
+    //    part.name = repair.part_name;
+    //    part.description = repair.partDescription;
+    //    part.vendor = repair.vendor;
+    //    part.cost = repair.cost;
+    //    part.repair_id = repair.id;
+    //    partsService.postParts(part);
+    //
+    //    $scope.repair.part_name = "";
+    //    $scope.repair.partDescription = "";
+    //    $scope.repair.vendor = "";
+    //    $scope.repair.cost = "";
+    //
+    //
+    //};
 
-        $scope.repair.part_name = "";
-        $scope.repair.partDescription = "";
-        $scope.repair.vendor = "";
-        $scope.repair.cost = "";
 
 
-    };
-
-//Edit
+//Edit function - opens md dialog with the selected repair and all info related to it.
         $scope.edit = function(ev, repair) {
             console.log('hit edit');
             console.log(repair);
@@ -74,9 +82,10 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
                 })
                 .then(function(answer) {
                    $scope.getRepairs();
-                }, function() {
-                    $scope.status = 'You cancelled the dialog.';
                 });
+            //, function() {
+            //        $scope.status = 'You cancelled the dialog.';
+            //    });
             $scope.$watch(function() {
                 return $mdMedia('xs') || $mdMedia('sm');
             }, function(wantsFullScreen) {
@@ -92,10 +101,10 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
         };
         $scope.answer = function(response, repair) {
             $mdDialog.hide(response);
-            //console.log('parts for update',repair.parts);
             homeService.updateRepair(repair);
             homeService.updateCustomer(repair);
             partsService.updatePart(repair.parts);
+            vehicleService.updateVehicle(repair);
 
         };
 
@@ -112,7 +121,8 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
     };
 
 
-    $scope.getRepairs();
+        $scope.getRepairs();
+
 
 }]);
 

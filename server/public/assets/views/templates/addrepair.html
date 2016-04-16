@@ -8,7 +8,7 @@
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Customer</label>
                     <md-select  ng-model="repair.customer">
-                        <md-option ng-repeat="customer in customers.object" ng-click="getVehicles(customer.id)" >{{customer.first_name}} {{customer.last_name}}</md-option>
+                        <md-option ng-repeat="customer in customers.object | orderBy : '-id'" ng-click="getVehicles(customer.id)" >{{customer.first_name}} {{customer.last_name}}</md-option>
                     </md-select>
                 </md-input-container>
 

@@ -10,6 +10,7 @@ var connectionString = connection;
 
 
 router.post('/',function(request,response){
+    console.log('length of repair id string',request.body.repair_id.length);
     var name = request.body.name;
     var description = request.body.description;
     var vendor = request.body.vendor;
