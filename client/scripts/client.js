@@ -121,7 +121,7 @@ myApp.config(['$routeProvider','$locationProvider','$mdThemingProvider',
             controller: 'VehicleController'
         })
         .when('/addparts', {
-            templateUrl: 'assets/views/templates/addparts.html',
+            templateUrl: 'assets/views/templates/addParts.html',
             controller: 'PartsController'
         })
         .otherwise({
