@@ -33,7 +33,7 @@ pg.connect(connectionString, function(err, client, done){
             done();
         });
         //Check Third table
-        query = client.query('CREATE TABLE IF NOT EXISTS "public"."vehicles" ("id" serial,"year" integer,"make" text,"model" text,"engine" float,"transmission" text,"vin" text,"repair_id" integer,"customer_id" integer,PRIMARY KEY ("id"),CONSTRAINT "repairs.id" FOREIGN KEY ("repair_id") REFERENCES "public"."repairs"("id"),CONSTRAINT "customers.id" FOREIGN KEY ("customer_id") REFERENCES "public"."customers"("id"));');
+        query = client.query('CREATE TABLE IF NOT EXISTS "public"."vehicles" ("id" serial,"year" integer,"make" text,"model" text,"engine" float,"transmission" text,"vin" text,"customer_id" integer,PRIMARY KEY ("id"),CONSTRAINT "customers.id" FOREIGN KEY ("customer_id") REFERENCES "public"."customers"("id"));');
 
         query.on('end', function(){
             console.log("Successfully checked vehicles table");
