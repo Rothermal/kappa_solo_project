@@ -10,7 +10,7 @@ pg.connect(connectionString, function(err, client, done){
         console.log("Error connecting to DB!", err);
     } else {
 
-        var query = client.query('CREATE TABLE IF NOT EXISTS "public"."users" ("id" serial, "username" text,"password" text,"email" text,PRIMARY KEY ("id"),UNIQUE ("user_name"));');
+        var query = client.query('CREATE TABLE IF NOT EXISTS "public"."users" ("id" serial, "username" text,"password" text,"email" text,PRIMARY KEY ("id"),UNIQUE ("username"));');
 
         query.on('end', function(){
             console.log("Successfully checked user table");
