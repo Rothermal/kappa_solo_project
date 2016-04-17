@@ -22,7 +22,7 @@ pg.connect(connectionString, function(err, client, done){
             done();
         });
         //Check Second table
-        query = client.query('CREATE TABLE IF NOT EXISTS "public"."customers" ("id" serial,"first_name" text,"last_name" text,"phone_number" text,"email" text,"vehicle_id" text,PRIMARY KEY ("id"),CONSTRAINT "vehicles.id" FOREIGN KEY ("vehicle_id") REFERENCES "public"."vehicles"("id"));');
+        query = client.query('CREATE TABLE IF NOT EXISTS "public"."customers" ("id" serial,"first_name" text,"last_name" text,"phone_number" text,"email" text,PRIMARY KEY ("id"));');
         query.on('end', function(){
             console.log("Successfully checked customers table");
             done();
