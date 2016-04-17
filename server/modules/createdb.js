@@ -64,7 +64,7 @@ pg.connect(connectionString, function(err, client, done){
             done();
         });
         //Check Fifth table
-        query = client.query('CREATE TABLE IF NOT EXISTS "public"."parts" ("id" serial,"part_name" text,"description" text,"vendor" text,"cost" float,"repair_id" text,PRIMARY KEY ("id"),CONSTRAINT "repairs.id" FOREIGN KEY ("repair_id") REFERENCES "public"."repairs"("id"));');
+        query = client.query('CREATE TABLE IF NOT EXISTS "public"."parts" ("id" serial,"part_name" text,"description" text,"vendor" text,"cost" float,"repair_id" integer,PRIMARY KEY ("id"),CONSTRAINT "repairs.id" FOREIGN KEY ("repair_id") REFERENCES "public"."repairs"("id"));');
 
         query.on('end', function(){
             console.log("Successfully checked parts table");
