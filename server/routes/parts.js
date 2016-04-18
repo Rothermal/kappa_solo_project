@@ -112,8 +112,38 @@ router.put('/',function(request,response){
             response.status(500).send(error);
         });
     });
-
-
 });
+router.delete('/:id',function(request,response){
+        console.log('repair id in delete parts',request.params.id);
+    var repair_id = request.params.id;
+        response.send(repair_id);
+//
+//    pg.connect(connectionString,function(err,client,done){
+//        if(err){
+//            done();
+//            console.log("error connecting to database",err);
+//            response.status(500).send(err);
+//        } else{
+//            var results = [];
+//            var query = client.query("SELECT * FROM parts WHERE repair_id = $1;",[repair_id]);
+//        }
+//        query.on('row',function(row){
+//            console.log(row);
+//            results.push(row);
+//        });
+//        query.on('end',function(){
+//            done();
+//            response.send(results);
+//        });
+//        query.on('error',function(error){
+//            console.log('Error returning query', error);
+//            done();
+//            response.status(500).send(error);
+//        });
+//    });
+//
+//
+});
+
 
 module.exports = router;

@@ -6,7 +6,6 @@ myApp.factory('CustomerService',['$http',function($http){
     var Customers = {};
     var Vehicles = {};
     var test = '';
-    var lastPostedRepair_id = {};
 
 
    var getCustomers = function(){
@@ -38,6 +37,13 @@ myApp.factory('CustomerService',['$http',function($http){
         });
     };
 
+    var deleteRepair = function(id){
+        $http.delete('/repairs/'+id).then(function(response){
+            console.log('response in factory, delete repair',response) ;
+        });
+    };
+
+
     return {
         test:test,
         customers:Customers,
@@ -46,7 +52,7 @@ myApp.factory('CustomerService',['$http',function($http){
         vehicleList:getVehicles,
         postRepair:postRepair,
         postCustomer:postCustomer,
-        lastRepair:lastPostedRepair_id
+        deleteRepair:deleteRepair
     };
 
 }]);

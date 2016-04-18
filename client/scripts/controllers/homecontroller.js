@@ -22,7 +22,11 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
         $scope.part = {};
         $scope.parts = [];
 
-
+    $scope.deleteRepair = function(repairId){
+      console.log('clicked',repairId);
+        partsService.deletePart(repairId);
+        customerService.deleteRepair(repairId);
+    };
 
 
     $scope.getRepairs = function(){

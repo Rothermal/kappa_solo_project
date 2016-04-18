@@ -19,6 +19,13 @@ myApp.factory('PartsService',['$http',function($http){
       });
     };
 
+
+    var deletePart = function(repairId){
+        $http.delete('/parts/'+repairId).then(function(response){
+            console.log('response in parts delete',response);
+        });
+    };
+
     var updatePart = function(parts){
         //console.log('update to send',parts.object);
 
@@ -39,7 +46,8 @@ myApp.factory('PartsService',['$http',function($http){
         postParts:postParts,
         getParts:getParts,
         parts:Parts,
-        updatePart: updatePart
+        updatePart: updatePart,
+        deletePart:deletePart
     };
 
 }]);
