@@ -1,23 +1,18 @@
 body{
-    background-color: teal;
+    background-color: #4F4D3f;
 }
 .header {
-    background-image: url("/assets/images/melancholy-of-departure.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
     background-color: #4F4D3F;
-    height: 275px;
+    height: 135px;
     background-size: 100%;
+    color: whitesmoke;
 }
 .home {
-    /*background-image: url("/assets/images/Starry_Night_Over_the_Rhone.jpg");*/
-    /*background-size: 100%;*/
-    background-color: #d4dbd8;
+    background-color: #C5CEC5;
 }
 .footer {
-    background-image: url("/assets/images/Edvard_Munch_-_Melancholy_(1894).jpg");
-    background-size: 100%;
-    height: 245px;
+    background-color: #4F4D3F;
+    height: 135px;
 }
 .login-body{
     background-image: url("/assets/images/sad_background.jpg");
@@ -26,12 +21,11 @@ body{
     background-color: #000000;
     color: aliceblue;
 }
-.login-div{
-    /*width : 300px;*/
-    /*height: 275px;*/
-    /*background-color: #bfedf3;*/
-    /*margin: 0 auto;*/
+.login-title{
+    margin-top:7%;
+    margin-bottom: 2%;
 }
+
 .login-mdcontent{
     width: 350px;
     margin: 0 auto;
@@ -39,10 +33,10 @@ body{
 
 
 h1 h3{
-    color: aliceblue;
+    color: whitesmoke;
 }
 p{
-    color: #bfedf3;
+    color: whitesmoke;
 }
 .date-picker {
     float: right;
@@ -50,17 +44,32 @@ p{
     margin-bottom: 45px;
 }
 
-.face{
-    display: flex;
-    justify-content: flex-start;
-    margin-left: 5%;
-    margin-bottom: 5% ;
-}
-
 .face img{
 
-    height: 150px;
-    width: 175px;
+    margin: 15px 0 0 15px;
+    height: 100px;
+    width: 115px;
     border: solid;
 
+}
+.white{
+    color: whitesmoke;
+}
+.edit-form{
+    padding: 20px 25px;
+}
+
+.add-customer{
+    width : 600px;
+    border-left: 2px solid #082A12;
+    border-right: 2px solid #082A12;
+    border-bottom: 2px solid #082A12;
+    margin: 0 auto;
+    padding:0 0;
+}
+.green {
+    background-color: #082A12;
+}
+.taller {
+   height: 700px;
 }

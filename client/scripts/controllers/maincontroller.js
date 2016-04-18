@@ -3,9 +3,9 @@
  */
 myApp.controller('MainController',['$scope',function($scope){
 
-    $scope.title = "WELCOME TO THE HALL OF PRESIDENTS";
-    $scope.header= "";
+    //$scope.title = "";
+    $scope.header= "Melancholy Motors . . . .";
 
-    $scope.footer = 'Footery Foot stuff';
+
 
 }]);

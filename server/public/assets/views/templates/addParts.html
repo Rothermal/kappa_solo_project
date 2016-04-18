@@ -1,7 +1,7 @@
-<md-content layout-padding>
-    <div style="width : 600px; margin: 0 auto;">
-        <div layout-align="center center" layout="column">
-            <h3 class="md-title">Add a new part</h3>
+<md-content layout-padding class="taller">
+    <div class="add-customer">
+        <div layout-align="center center" layout="column" class="green">
+            <h3 class="md-title white ">Add a New Part</h3>
         </div>
         <form name="new-parts">
             <div layout-gt-sm="row">
@@ -17,26 +17,26 @@
             </div>
             <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
-                    <label>part name</label>
+                    <label>Part Name</label>
                     <input ng-model="part.name">
                 </md-input-container>
 
                 <md-input-container class="md-block" flex-gt-sm>
-                    <label>description</label>
+                    <label>Description</label>
                     <input ng-model="part.description">
                 </md-input-container>
             </div>
 
             <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
-                    <label>Vendor: </label>
+                    <label>Vendor </label>
                     <md-select  ng-model="part.vendor">
                         <md-option ng-repeat="vendor in vendorArray" >{{vendor}}</md-option>
                     </md-select>
                 </md-input-container>
 
                 <md-input-container class="md-block" flex-gt-sm>
-                    <label>part cost</label>
+                    <label>Part Cost</label>
                     <input  type="number"  ng-model="part.cost">
                 </md-input-container>
             </div>

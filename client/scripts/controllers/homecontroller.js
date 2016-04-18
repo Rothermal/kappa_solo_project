@@ -14,7 +14,7 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
         $scope.repairTypeArray = ['Starting and Charging','Engine Diagnostics','Engine Electrical','Engine Mechanical', 'Steering and Suspension','Heating and Cooling', 'Brakes', 'Maintenance'];
         $scope.vendorArray = ['Napa','AutoZone','CarQuest',"O'Reilly's",'Advance','Factory','Dealership','Amazon','Ebay','Red Rooster'];
         $scope.test = customerService.test;
-        $scope.title = "this is the home view. ";
+        $scope.title = "";
         //$scope.count = 0;
         $scope.repairs = [];
 

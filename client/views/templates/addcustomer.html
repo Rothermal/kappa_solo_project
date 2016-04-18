@@ -1,7 +1,7 @@
-<md-content layout-padding>
-    <div style="width : 600px; margin: 0 auto;">
-        <div layout-align="center center" layout="column">
-            <h3 class="md-title">Add a new customer</h3>
+<md-content layout-padding class="taller">
+    <div  class="add-customer" >
+        <div layout-align="center center" layout="column" class="green">
+            <h3 class="md-title white  ">Add a New Customer</h3>
         </div>
         <form name="new-Customer">
             <div layout-gt-sm="row">
@@ -18,7 +18,7 @@
 
             <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
-                    <label>email</label>
+                    <label>Email</label>
                     <input ng-model="customer.email">
                 </md-input-container>
 
@@ -34,4 +34,4 @@
         </form>
     </div>
 </md-content>
-</div>
+

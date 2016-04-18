@@ -1,7 +1,7 @@
-<md-content layout-padding>
-    <div style="width : 600px; margin: 0 auto;">
-        <div layout-align="center center" layout="column">
-            <h3 class="md-title">Add a New Repair</h3>
+<md-content layout-padding class="taller">
+    <div class="add-customer">
+        <div layout-align="center center" layout="column" class="green">
+            <h3 class="md-title white">Add a New Repair</h3>
         </div>
         <form name="new-repair">
             <div layout-gt-sm="row">
@@ -13,7 +13,7 @@
                 </md-input-container>
 
                 <md-input-container class="md-block" flex-gt-sm>
-                    <label>vehicle</label>
+                    <label>Vehicle</label>
                     <md-select  ng-model="repair.vehicle">
                         <md-option ng-repeat="vehicle in vehicles.object" ng-click="setVehicleid(vehicle.id)" >{{vehicle.year}} {{vehicle.make}} {{vehicle.model}}</md-option>
                     </md-select>
