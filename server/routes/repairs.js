@@ -116,32 +116,32 @@ router.delete('/:id',function(request,response){
 
     console.log('repair id in delete repair',request.params.id);
     var repair_id = request.params.id;
-    response.send(repair_id);
-    //
-    //
-    //pg.connect(connectionString,function(err,client,done){
-    //    if(err){
-    //        done();
-    //        console.log("error connecting to database",err);
-    //        response.status(500).send(err);
-    //    } else{
-    //        var results = [];
-    //        var query = client.query("SELECT repairs.id, type, description, fee, date_of_repair, first_name, last_name, phone_number, email, year, make, model, engine, transmission, vin, mileage  from repairs INNER JOIN customers ON customers.id = repairs.customer_id INNER JOIN vehicles ON vehicles.id = repairs.vehicle_id;");
-    //    }
-    //    query.on('row',function(row){
-    //        //console.log(row);
-    //        results.push(row);
-    //    });
-    //    query.on('end',function(){
-    //        done();
-    //        response.send(results);
-    //    });
-    //    query.on('error',function(error){
-    //        console.log('Error returning query', error);
-    //        done();
-    //        response.status(500).send(error);
-    //    });
-    //});
+    //response.send(repair_id);
+
+
+    pg.connect(connectionString,function(err,client,done){
+        if(err){
+            done();
+            console.log("error connecting to database",err);
+            response.status(500).send(err);
+        } else{
+            var results = [];
+            var query = client.query("DELETE FROM repairs WHERE id = $1;",[repair_id]);
+        }
+        query.on('row',function(row){
+            //console.log(row);
+            results.push(row);
+        });
+        query.on('end',function(){
+            done();
+            response.send(results);
+        });
+        query.on('error',function(error){
+            console.log('Error returning query', error);
+            done();
+            response.status(500).send(error);
+        });
+    });
 
 
 

@@ -86,10 +86,9 @@ myApp.controller('HomeController',['$scope','$http','CustomerService','HomeServi
                 })
                 .then(function(answer) {
                    $scope.getRepairs();
-                });
-            //, function() {
-            //        $scope.status = 'You cancelled the dialog.';
-            //    });
+                }, function() {
+                $scope.getRepairs();
+            });
             $scope.$watch(function() {
                 return $mdMedia('xs') || $mdMedia('sm');
             }, function(wantsFullScreen) {
