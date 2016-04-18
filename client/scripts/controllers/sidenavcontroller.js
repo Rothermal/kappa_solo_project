@@ -5,11 +5,11 @@ myApp.controller('SidenavController',['$scope','$mdSidenav', function($scope) {
 
 
 //$scope.isOpen = false;
-$scope.demo = {
-    isOpen: false,
-    count: 0,
-    selectedDirection: 'right'
-};
+//$scope.demo = {
+//    isOpen: false,
+//    count: 0,
+//    selectedDirection: 'right'
+//};
 
 
 }]);

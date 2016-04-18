@@ -41,28 +41,27 @@
 
 <div ng-controller="SidenavController" ng-cloak>
 <md-content>
-    <md-fab-toolbar md-open="demo.isOpen" count="demo.count"
-                    md-direction="{{demo.selectedDirection}}">
-        <md-fab-trigger class="align-with-text">
-            <md-button aria-label="menu" class="md-fab md-accent">
-                <md-icon md-svg-src="assets/images/menu.svg"></md-icon>
-            </md-button>
-        </md-fab-trigger>
-        <md-toolbar>
-            <md-fab-actions class="md-toolbar-tools">
-                <md-button href="/" aria-label="home" class="md-button">
+    <!--<md-fab-toolbar isOpen="true"  md-direction="right">-->
+        <!--<md-fab-trigger class="align-with-text">-->
+            <!--<md-button aria-label="menu" class="md-fab md-accent">-->
+                <!--<md-icon md-svg-src="assets/images/menu.svg"></md-icon>-->
+            <!--</md-button>-->
+        <!--</md-fab-trigger>-->
+        <md-toolbar class="md-accent">
+            <md-fab-actions class="md-toolbar-tools" layout-align="center center">
+                <md-button href="/" aria-label="home" class="md-button white">
                     Home
                 </md-button>
-                <md-button href="/addcustomer" aria-label="customer" class="md-button">
+                <md-button href="/addcustomer" aria-label="customer" class="md-button white">
                     Add a New Customer
                 </md-button>
-                <md-button href="/addvehicle"  aria-label="vehicle" class="md-button">
+                <md-button href="/addvehicle"  aria-label="vehicle" class="md-button white">
                     Add a New Vehicle
                 </md-button>
-                <md-button href="/addrepair" aria-label="repair" class="md-button">
+                <md-button href="/addrepair" aria-label="repair" class="md-button white">
                     Add a New Repair
                 </md-button>
-                <md-button href="/addparts" aria-label="parts" class="md-button">
+                <md-button href="/addparts" aria-label="parts" class="md-button white">
                     Add Parts to Repair
                 </md-button>
 

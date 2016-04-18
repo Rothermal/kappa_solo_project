@@ -17,6 +17,10 @@ myApp.controller('LoginController',['$scope','CustomerService','LoginService',fu
     console.log('go register');
         loginService.goRegister();
     };
+    $scope.goLogin = function(){
+      console.log('go login');
+        loginService.goLogin();
+    };
     $scope.registerUser = function(newUser){
         console.log(newUser);
         if(newUser.password !== newUser.verifyPassword){

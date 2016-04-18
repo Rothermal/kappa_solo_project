@@ -7,6 +7,7 @@ body{
     background-size: 100%;
     color: whitesmoke;
 }
+
 .home {
     background-color: #C5CEC5;
 }
@@ -41,7 +42,7 @@ p{
 .date-picker {
     float: right;
     margin-right: 45px;
-    margin-bottom: 45px;
+    /*margin-bottom: 45px;*/
 }
 
 .face img{
@@ -53,7 +54,7 @@ p{
 
 }
 .white{
-    color: whitesmoke;
+    color: whitesmoke !important;
 }
 .edit-form{
     padding: 20px 25px;
@@ -67,9 +68,29 @@ p{
     margin: 0 auto;
     padding:0 0;
 }
+.inner-form{
+    padding: 15px;
+}
 .green {
     background-color: #082A12;
 }
 .taller {
-   height: 700px;
+   height: 550px;
+}
+.home-table {
+    width : 75%;
+    height: 450px;
+    overflow: auto;
+}
+.red{
+    color: #880000 !important;
+}
+.blue{
+    color: #003366 !important;
+}
+.container{
+    text-align: center;
+}
+.btn{
+    margin-right:15px ;
 }

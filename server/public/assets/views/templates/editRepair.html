@@ -123,14 +123,20 @@
     </div>
 
         </md-dialog-content>
+
         <md-dialog-actions layout="row">
             <span flex></span>
-            <md-button ng-click="cancel('not useful')">
-                Close Without Saving
-            </md-button>
-            <md-button ng-click="answer('updated', repair)" style="margin-right:20px;">
+
+            <md-button class="md-raised blue btn" ng-click="answer('updated', repair)" >
                 Save
             </md-button>
+            <md-button class="md-raised white btn" ng-click="cancel('not useful')">
+                Cancel
+            </md-button>
+            <md-button class="md-raised red btn" ng-click="deleteRepair(repair); cancel('not useful')">
+                Delete
+            </md-button>
+
         </md-dialog-actions>
     </form>
 </md-dialog>

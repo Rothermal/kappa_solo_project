@@ -30,7 +30,7 @@
         <div class="login-div">
             <!-- Set form action and method -->
 
-            <form name="userLogin">
+            <form name="userLogin" class="inner-form">
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>User Name</label>
@@ -45,8 +45,8 @@
                     </md-input-container>
                 </div>
                 <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-                    <md-button ng-click="loginFunction(User)" class="md-raised md-accent">LOG IN</md-button>
-                    <md-button class="md-raised md-warn" ng-click="goRegister()" >Register new User</md-button>
+                    <md-button ng-click="loginFunction(User)" class="md-raised md-accent white ">LOG IN</md-button>
+                    <md-button class="md-raised md-accent white " ng-click="goRegister()" >Register new User</md-button>
 
                 </section>
             </form>

@@ -2,7 +2,7 @@
 <html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
-    <title>Rothermotive Repairs</title>
+    <title>Melancholy Motors</title>
     <script src="assets/vendors/angular/angular.min.js"></script>
     <script src="assets/vendors/angular-route/angular-route.min.js"></script>
     <script src="assets/vendors/angular-animate/angular-animate.min.js"></script>
@@ -21,38 +21,17 @@
 
     <div layout-align="center center" layout="column">
         <div >
-            <h1 class="lead">Register New User</h1>
+            <h1 class="lead white">Register New User</h1>
         </div>
     </div>
 
-    <!--<div class="container">-->
-        <!--&lt;!&ndash; Set action and method &ndash;&gt;-->
-        <!--<form action="/register" method="post">-->
-            <!--<div>-->
-                <!--<label for="username">Username:</label>-->
-                <!--<input type="text" name="username" id="username">-->
-            <!--</div>-->
-
-            <!--<div>-->
-                <!--<label for="password">Password:</label>-->
-                <!--<input type="password" name="password" id="password">-->
-            <!--</div>-->
-
-            <!--<div>-->
-                <!--<label for="email">Email:</label>-->
-                <!--<input type="text" name="email" id="email">-->
-            <!--</div>-->
-
-            <!--<input type="submit" value="Register"/>-->
-        <!--</form>-->
-    <!--</div>-->
     <md-content layout-padding>
-        <div style="width : 600px; margin: 0 auto;">
-            <div layout-align="center center" layout="column">
-                <h3 class="md-title">Admin Registration</h3>
+        <div class="add-customer">
+            <div layout-align="center center" layout="column" class="green" >
+                <h3 class="md-title white">Admin Registration</h3>
             </div>
 
-            <form name="userRegistration">
+            <form name="userRegistration" class="inner-form">
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>User name</label>
@@ -62,7 +41,7 @@
 
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
-                        <label>email</label>
+                        <label>Email</label>
                         <input ng-model="newUser.email">
                     </md-input-container>
                 </div>
@@ -81,7 +60,9 @@
 
 
                 <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-                    <md-button ng-click="registerUser(newUser)" class="md-raised">SUBMIT</md-button>
+                    <md-button ng-click="goLogin()" class="md-raised md-accent white">Back to Login</md-button>
+
+                    <md-button ng-click="registerUser(newUser)" class="md-raised md-accent white">Submit</md-button>
                 </section>
             </form>
         </div>
