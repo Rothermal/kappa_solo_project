@@ -43,7 +43,6 @@ myApp.factory('CustomerService',['$http',function($http){
         });
     };
 
-
     return {
         test:test,
         customers:Customers,
