@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server/server.js"
+    "start": "nodemon server/server.js",
+    "preinstall": "npm i -g node-gyp && node-gyp clean"
+
   },
   "author": "",
   "license": "ISC",
