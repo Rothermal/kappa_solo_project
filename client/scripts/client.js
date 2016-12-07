@@ -11,7 +11,7 @@ myApp.config(['$routeProvider','$locationProvider','$mdThemingProvider',
     //    .primaryPalette('blue-grey')
     //    .accentPalette('teal');
     //    //.dark();
-
+    // just a comment- did some trail head - no metadata to move. 12-6-16
         var customPrimary = {
             '50': '#388338',
             '100': '#317131',
